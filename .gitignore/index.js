@@ -16,7 +16,7 @@ bot.on('guildMemberAdd', member => {
   const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
-  .setDescription(`:inbox_tray:  Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !! \n Nous t'invitons à lire les informations complémetaires dans le channel *Informations*, ainsi qu'à lire le réglements ! \n Bonne visite à La Friterie et bon appétit !! 🍟`)
+  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n Nous t'invitons à lire les informations complémetaires dans le channel <#513811643172388910>, ainsi qu'à __lire le réglement__, <#513815192698617883> ! \n Bonne visite à La Friterie et bon appétit !! 🍟`)
   return welcomechannel.send({embed})
 });
 
@@ -25,7 +25,7 @@ bot.on("guildMemberRemove", member => {
   const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
-  .setDescription(`:inbox_tray: <@${member.user.id}> à quitter ${serverTag} , à la prochaine fois en espérant vous revoir très bientôt !! 🍟`)
+  .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté** ${serverTag} , à la prochaine fois en espérant vous revoir très bientôt !! 🍟`)
   return GG.send({embed})
 })
 
