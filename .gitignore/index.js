@@ -14,8 +14,6 @@ bot.on('guildMemberAdd', member => {
 
   let serverTag = member.guild.name
   const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
-  const role = member.guild.roles.find("id", "513810253884948483")    
-  member.addRole(role)
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
   .setDescription(`:inbox_tray: <@${member.user.id}> à rejoint ${serverTag}`)
@@ -24,11 +22,11 @@ bot.on('guildMemberAdd', member => {
 
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
-  const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')   
+  const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
   .setDescription(`:inbox_tray: <@${member.user.id}> à quitter ${serverTag}`)
-  return welcomechannel.send({embed})
+  return GG.send({embed})
 })
 
 bot.on('message', message => {
@@ -233,4 +231,5 @@ bot.on('message', message => {
                 
                 
 
-     }).
+     });
+
