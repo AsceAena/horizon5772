@@ -34,6 +34,7 @@ bot.on('message', message => {
         if (message.content === prefix + "start"){
             message.channel.sendMessage("Bot en cours d'éxecution !");
         }
+    
 
 
     
