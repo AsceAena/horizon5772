@@ -28,7 +28,7 @@ bot.on("guildMemberRemove", member => {
   .setColor('#FF8C00')
   .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !!** 🍟`)
   return GG.send({embed})
-})
+});
 
 bot.on('message', message => {
         if (message.content === prefix + "start"){
