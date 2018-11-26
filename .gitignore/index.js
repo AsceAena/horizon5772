@@ -20,6 +20,7 @@ bot.on('guildMemberAdd', member => {
   return welcomechannel.send({embed})
 });
 
+
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
   const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
