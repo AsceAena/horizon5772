@@ -186,8 +186,7 @@ bot.on('message', message => {
   message.channel.sendEmbed(embed1)
     }
       
-
-    var randhug = 0
+     var randhug = 0
 
         function random(min, max){
           min = Math.ceil(0);
