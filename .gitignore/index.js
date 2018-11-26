@@ -10,18 +10,24 @@ bot.on('ready', function() {
 
 bot.login(process.env.Token1);
 
+bot.on('guildMemberAdd', member => {
 
-bot.on("guildMemberAdd", member =>{
-  member.guild.channels.find("name", "friterie-1-🍟").send('Bienvenue ${member}')
-})
+  let serverTag = member.guild.name
+  const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
+  const role = member.guild.roles.find("name", "Clients")    
+  member.addRole(role)
+  var embed = new Discord.RichEmbed()
+  .setColor('#76D880')
+  .setDescription(`:inbox_tray: <@${member.user.id}> à rejoint ${serverTag}`)
+  return welcomechannel.send({embed})
+});
 
 bot.on("guildMemberRemove", member => {
-  member.guild.channels.find("name", "friterie-1-🍟").send('${member} viens de quitter')
-})
-
-bot.on('guildMemberAdd', member => {
-  var role = member.guild.roles.find('name', 'Clients');
-  member.addRole(role)
+  let serverTag = member.guild.name
+  var embed = new Discord.RichEmbed()
+  .setColor('#76D880')
+  .setDescription(`:inbox_tray: <@${member.user.id}> à quitter ${serverTag}`)
+  return welcomechannel.send({embed})
 })
 
 bot.on('message', message => {
