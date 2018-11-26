@@ -20,13 +20,12 @@ bot.on('guildMemberAdd', member => {
   return welcomechannel.send({embed})
 });
 
-
 bot.on("guildMemberRemove", member => {
   let serverTag = member.guild.name
   const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
-  .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté** ${serverTag} , à la prochaine fois en espérant vous revoir très bientôt !! 🍟`)
+  .setDescription(`:inbox_tray: <@${member.user.id}> **à quitté** ${serverTag} , à la prochaine fois en espérant te revoir très bientôt !! 🍟`)
   return GG.send({embed})
 })
 
@@ -230,7 +229,5 @@ bot.on('message', message => {
         
     }
                 
-                
-
-     });
+         });
 
