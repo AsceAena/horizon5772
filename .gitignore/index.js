@@ -233,5 +233,4 @@ bot.on('message', message => {
                 
                 
 
-     });
-
+     }).
