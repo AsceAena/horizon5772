@@ -20,14 +20,17 @@ bot.on('guildMemberAdd', member => {
   return welcomechannel.send({embed})
 });
 
-bot.on("guildMemberRemove", member => {
+bot.on('guildMemberRemove', member => {
+
   let serverTag = member.guild.name
-  const GG = member.guild.channels.find('name', 'friterie-1-🍟')   
+  const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
   var embed = new Discord.RichEmbed()
   .setColor('#76D880')
-  .setDescription(`:inbox_tray: <@${member.user.id}> à quitter ${serverTag}`)
-  return GG.send({embed})
-})
+  .setDescription(`:inbox_tray: <@${member.user.id}> à quitté ${serverTag}`)
+  return welcomechannel.send({embed})
+});
+
+
 
 bot.on('message', message => {
         if (message.content === prefix + "start"){
