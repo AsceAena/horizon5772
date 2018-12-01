@@ -57,15 +57,14 @@ bot.on('message', message => {
           .setImage(user.avatarURL)
           .setColor('RANDOM')
             message.channel.send(embed)
-          }
-
-          if (message.content === '~avatar'){
+          }else{
+            if(message.content === "~avatar"){
             var user1 = message.author
             let embed = new Discord.RichEmbed()
           .setImage(user1.avatarURL)
           .setColor('RANDOM')
             message.channel.send(embed)
-          }
+            }};
       
   
        if(message.content === "~infodiscord") { 
