@@ -51,7 +51,7 @@ bot.on('message', message => {
             message.channel.send({embed})
           }
 
-          if (message.startsWith === '~avatar') {
+          if (message.content.startsWith('~avatar')) {
             var user = message.mentions.users.first();
             let embed = new Discord.RichEmbed()
           .setImage(user.avatarURL)
