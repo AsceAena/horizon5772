@@ -51,16 +51,15 @@ bot.on('message', message => {
             message.channel.send({embed})
           }
 
-    
-          if (startsWith === "~avatar") {
-            let usera = message.users.first()
-        
-        let embed5 = new Discord.RichEmbed()
-          .setImage(usera.displayAvatarURL)
-          .setColor("RANDOM")
-            message.channel.send({embed5})
+          if (message.content === '~avatar') {
+            var user = message.mentions.users.first();
+            let embed = new Discord.RichEmbed()
+          .setImage(user.avatarURL)
+          .setColor('RANDOM')
+            message.channel.send(embed)
           }
-        
+      
+  
        if(message.content === "~infodiscord") { 
              var embed = new Discord.RichEmbed()
              .setTitle("Information du Discord")
