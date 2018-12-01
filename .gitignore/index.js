@@ -111,26 +111,11 @@ if (message.content === "~test"){
         }
       }
 
-      if (message.content.startsWith('~ban')) {
-        const user = message.mentions.users.first();
-        if (user) {
-          const member = message.guild.member(user);
-          if (member) {
-            member.ban({
-              reason: 'Frites au four !',
-            }).then(() => {
-              message.reply(`${user.tag} a était bannis avec succes`);
-            }).catch(err => {
-              message.reply('Je n ai pas pu bannir la personne ');
-              console.error(err);
-            });
-          } else {
-            message.reply('That user isn\'t in this guild!');
-          }
-        } else {
-          message.reply('Mentionner un utilisateur valide');
-        }
-      }
+      if (message.content === '~testest') {
+        const buffer = fs.readFileSync('./test.txt');
+        const attachment = new Attachment(buffer, 'test.txt');
+        message.channel.send(`${message.author}, TEST!`, attachment);
+    }
 
         if(message.content === "~infobot"){
           let bicon1 = bot.user.displayAvatarURL;
