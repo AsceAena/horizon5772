@@ -60,9 +60,10 @@ if (message.content === "~test"){
           }}
           
   if(message.content === "~infodiscord") { 
+            let bicon = bot.user.displayAvatarURL;
              var embed = new Discord.RichEmbed()
+             .setThumbnail(bicon)
              .setTitle("Information du Discord")
-             .setAuthor("test")
              .addField("Nom du discord", message.guild.name)
             .addField("Crée le", message.guild.createdAt)
             .addField("Tu as rejoins le", message.member.joinedAt)
@@ -234,9 +235,9 @@ if (message.content === "~test"){
       message.channel.sendEmbed(embed)
             console.log(randhug);
         }
+      }
 
-     }
+     
 
-
-     });
+    });
 
