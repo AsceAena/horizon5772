@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const fs = require('fs');
 
 var prefix = ("~")
 
@@ -111,10 +112,19 @@ if (message.content === "~test"){
         }
       }
 
-      if (message.content === '~testest') {
-        const buffer = fs.readFileSync('./test.txt');
+      if (message.content === '!memes') {
+        // Get the buffer from the 'memes.txt', assuming that the file exists
+        const buffer = fs.readFileSync('./memes.txt');
+
+        /**
+         * Create the attachment using Attachment,
+         * overwritting the default file name to 'memes.txt'
+         * Read more about it over at
+         * http://discord.js.org/#/docs/main/stable/class/Attachment
+         */
         const attachment = new Attachment(buffer, 'test.txt');
-        message.channel.send(`${message.author}, TEST!`, attachment);
+        // Send the attachment in the message channel with a content
+        message.channel.send(`${message.author}, here are your memes!`, attachment);
     }
 
         if(message.content === "~infobot"){
