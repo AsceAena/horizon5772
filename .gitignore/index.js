@@ -60,7 +60,7 @@ if (message.content === "~test"){
           }}
           
   if(message.content === "~infodiscord") { 
-            let bicon = message.guild.users.displayAvatarURL;
+            let bicon = message.guild.displayAvatarURL;
              var embed = new Discord.RichEmbed()
              .setThumbnail(bicon)
              .setTitle("Information du Discord")
@@ -77,7 +77,7 @@ if (message.content === "~test"){
 
       if(message.content === "~avatarbot"){
          var embbed = new Discord.RichEmbed()
-         .setImage(message.guild.users.displayAvatarURL)
+         .setImage(message.guild.displayAvatarURL)
           .setColor('RANDOM')
             message.channel.send(embbed);
           }
