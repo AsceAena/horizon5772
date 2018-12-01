@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const fs = require('fs');
 
 var prefix = ("~")
 
@@ -39,20 +38,73 @@ bot.on('message', message => {
 if (message.content === "~test"){
             message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
               }
-          
-    if (message.content.split(" ")[0] == "~embed"){//EMBED
-             message.delete()
-             var embed = new Discord.RichEmbed()
-            .setColor("#FF7F50")
-            .setDescription(message.content.slice("~embed ".length))
-            console.log("Embed")
-            message.channel.send({embed});
-          }
+
+  if(message.content === "~help") { 
+    var embed = new Discord.RichEmbed()
+     .setTitle("Liste des commandes :")
+     .addField("**~LaCarte**", "Renseignez vous sur nos produits à consommer !")
+     .addField(" \n **~test : **", "Tester le bot.")
+     .addField("**~embed : **", "Créer des Embed.")
+     .addField("**~avatar :**", "Afficher votre propre avatar.")
+     .addField("**~infodiscord :**", "Infos à propos du serveur.")
+     .addField("**~infobot : **", "Afficher des renseignement à propos du bot")
+     .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
+     .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
+     .addField("**~sondage :**", "Faites voter vos idées !.")
+     .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
+     .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
+     .setColor("#FF4500")
+        message.channel.sendEmbed(embed)
+      }
+
+  if(message.content === "~infodiscord") { 
+      let bicon = message.author.displayAvatarURL;
+      var embed = new Discord.RichEmbed()
+    .setThumbnail(bicon)
+    .setTitle("Information du Discord")
+    .addField("Nom du discord", message.guild.name)
+    .addField("Crée le", message.guild.createdAt)
+    .addField("Tu as rejoins le", message.member.joinedAt)
+    .addField("Utilisateur sur le discord", message.guild.memberCount)
+    .addField("Nombre de catégories et de salons", message.guild.channels.size)
+    .setFooter("La Friterie")
+    .setColor("#FF4500")
+         message.channel.sendEmbed(embed)
+     }
+
+  if(message.content === "~infobot"){
+      let bicon1 = bot.user.displayAvatarURL;
+      let botembed = new Discord.RichEmbed()
+    .setTitle("Information du bot")
+    .setColor("#15f153")
+    .setThumbnail(bicon1)
+    .addField("Nom du bot", bot.user.username)
+    .addField("Créer le", bot.user.createdAt);
+       message.channel.send(botembed);
+    }
+
+   if(message.content === "~listfun") { 
+      var embed1 = new Discord.RichEmbed()
+    .setDescription("***Liste des commandes fun :***")
+    .addField("**~frites : **", "Fait apparaitre une image de frites !!.")
+    .addField("**Hugs :**", "Faites des câlins !")
+    .addField("**Et d'autres à venir..**", "Proposez vos idées..")
+    .setColor("#8800fc")
+       message.channel.sendEmbed(embed1)
+    }
+
+   if (message.content.split(" ")[0] == "~embed"){//EMBED
+        message.delete()
+        var embed = new Discord.RichEmbed()
+      .setColor("#FF7F50")
+      .setDescription(message.content.slice("~embed ".length))
+        message.channel.send({embed});
+      }
         
-          if(message.content === "~avatar"){
-          message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
-        }else{
-          if(message.content.startsWith('~avatar')) {
+   if(message.content === "~avatar"){
+        message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
+     }else{
+        if(message.content.startsWith('~avatar')) {
             var user = message.mentions.users.first();
             let embed = new Discord.RichEmbed()
           .setImage(user.avatarURL)
@@ -60,86 +112,31 @@ if (message.content === "~test"){
             message.channel.send(embed);
           }}
           
-  if(message.content === "~infodiscord") { 
-            let bicon = message.author.displayAvatarURL;
-             var embed = new Discord.RichEmbed()
-             .setThumbnail(bicon)
-             .setTitle("Information du Discord")
-             .addField("Nom du discord", message.guild.name)
-            .addField("Crée le", message.guild.createdAt)
-            .addField("Tu as rejoins le", message.member.joinedAt)
-            .addField("Utilisateur sur le discord", message.guild.memberCount)
-            .addField("Nombre de catégories et de salons", message.guild.channels.size)
-            .setFooter("La Friterie")
-            .setColor("RANDOM")
-         message.channel.sendEmbed(embed)
-         }
-
-       if (message.content.startsWith("~say")) {
+   if (message.content.startsWith("~say")) {
           message.delete()
           const str = message.content.substring("~say".length)
           message.channel.sendMessage(str)
         }
 
-      if(message.content === "~help") { 
-          var embed = new Discord.RichEmbed()
-          .setTitle("Liste des commandes :")
-          .addField("**~LaCarte**", "Renseignez vous sur nos produits à consommer !")
-          .addField(" \n **~test : **", "Tester le bot.")
-         .addField("**~embed : **", "Créer des Embed.")
-         .addField("**~avatar :**", "Afficher votre propre avatar.")
-         .addField("**~infodiscord :**", "Infos à propos du serveur.")
-         .addField("**~infobot : **", "Afficher des renseignement à propos du bot")
-         .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
-         .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
-         .addField("**~sondage :**", "Faites voter vos idées !.")
-         .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
-         .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
-         .setColor("#8800fc")
-      message.channel.sendEmbed(embed)
-        }
-
-
-      if (message.content === '~testest') {
-        const buffer = fs.readFileSync('./test.txt');
-        const attachment = new Attachment(buffer, 'test.txt');
-        message.channel.send(`${message.author}, here are your memes!`, attachment);
-    }
-
-        if(message.content === "~infobot"){
-          let bicon1 = bot.user.displayAvatarURL;
-          let botembed = new Discord.RichEmbed()
-          .setDescription("Information du bot")
-          .setColor("#15f153")
-          .setThumbnail(bicon1)
-          .addField("Nom du bot", bot.user.username)
-          .addField("Créer le", bot.user.createdAt);
-      
-          message.channel.send(botembed);
-        }
-
-        if(message.content === "~cmdbump"){
+    if(message.content === "~cmdbump"){
         var embedcmd = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .addField("``?bump``", "*Bump_Bot*")
-        .addField("``!disboard bump``", "*Disboard*")
+      .setColor('RANDOM')
+      .addField("``?bump``", "*Bump_Bot*")
+      .addField("``!disboard bump``", "*Disboard*")
         message.channel.sendEmbed(embedcmd)
-        }
+      }
 
-      if (message.content.split(" ")[0] == "~sondage"){//sondage
+   if (message.content.split(" ")[0] == "~sondage"){//sondage
           message.delete()
           var embed = new Discord.RichEmbed()
-          .setColor("RANDOM")
-          .setDescription(message.content.slice("~sondage ".length))
-          console.log("sondage")
+      .setColor("RANDOM")
+      .setDescription(message.content.slice("~sondage ".length))
           message.channel.send({embed}).then(embedMessage => {
-            embedMessage.react("👍");
-            embedMessage.react("👎");
-         })
-         }
-
-
-    var randnum = 0
+          embedMessage.react("👍");
+          embedMessage.react("👎");
+      })}
+         
+      var randnum = 0
 
         function randomc(min, max){
           min = Math.ceil(0);
@@ -203,17 +200,6 @@ if (message.content === "~test"){
               console.log(randnum);
           }
  }
-
-    if(message.content === "~listfun") { 
-      var embed1 = new Discord.RichEmbed()
-      .setDescription("***Liste des commandes fun :***")
-      .addField("**~frites : **", "Fait apparaitre une image de frites !!.")
-      .addField("**Hugs :**", "Faites des câlins !")
-      .addField("**Et d'autres à venir..**", "Proposez vos idées..")
-     .setColor("#8800fc")
-  message.channel.sendEmbed(embed1)
-    }
-      
 
     var randhug = 0
 
