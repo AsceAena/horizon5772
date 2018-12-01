@@ -60,7 +60,7 @@ if (message.content === "~test"){
           }}
           
   if(message.content === "~infodiscord") { 
-            let bicon = bot.user.displayAvatarURL;
+            let bicon = message.author.displayAvatarURL;
              var embed = new Discord.RichEmbed()
              .setThumbnail(bicon)
              .setTitle("Information du Discord")
@@ -88,6 +88,7 @@ if (message.content === "~test"){
          .addField("**~embed : **", "Créer des Embed.")
          .addField("**~avatar :**", "Afficher votre propre avatar.")
          .addField("**~infodiscord :**", "Infos à propos du serveur.")
+         .addField("**~infobot : **", "Afficher des renseignement à propos du bot")
          .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
          .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
          .addField("**~sondage :**", "Faites voter vos idées !.")
@@ -95,6 +96,18 @@ if (message.content === "~test"){
          .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
          .setColor("#8800fc")
       message.channel.sendEmbed(embed)
+        }
+
+        if(message.content === "~infobot"){
+          let bicon1 = bot.user.displayAvatarURL;
+          let botembed = new Discord.RichEmbed()
+          .setDescription("Information du bot")
+          .setColor("#15f153")
+          .setThumbnail(bicon1)
+          .addField("Bot Name", bot.user.username)
+          .addField("Created On", bot.user.createdAt);
+      
+          message.channel.send(botembed);
         }
 
         if(message.content === "~cmdbump"){
