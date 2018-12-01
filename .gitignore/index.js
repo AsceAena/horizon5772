@@ -60,8 +60,9 @@ bot.on('message', message => {
           }
 
           if (message.content === '~avatar'){
+            var user1 = message.author
             let embed = new Discord.RichEmbed()
-          .setImage(message.author.avatarURL)
+          .setImage(user1.avatarURL)
           .setColor('RANDOM')
             message.channel.send(embed)
           }
