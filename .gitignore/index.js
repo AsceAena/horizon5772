@@ -60,7 +60,7 @@ if (message.content === "~test"){
           }}
           
   if(message.content === "~infodiscord") { 
-            let bicon = message.guild.displayAvatarURL;
+            let bicon = message.author.displayAvatarURL;
              var embed = new Discord.RichEmbed()
              .setThumbnail(bicon)
              .setTitle("Information du Discord")
@@ -69,19 +69,10 @@ if (message.content === "~test"){
             .addField("Tu as rejoins le", message.member.joinedAt)
             .addField("Utilisateur sur le discord", message.guild.memberCount)
             .addField("Nombre de catégories et de salons", message.guild.channels.size)
-            .addField("Commande pour afficher l'avatar du serveur :", "*~avatarbot*")
             .setFooter("La Friterie")
             .setColor("RANDOM")
          message.channel.sendEmbed(embed)
          }
-
-      if(message.content === "~avatarbot"){
-         var embbed = new Discord.RichEmbed()
-         .setImage(message.guild.displayAvatarURL)
-          .setColor('RANDOM')
-            message.channel.send(embbed);
-          }
-      
 
        if (message.content.startsWith("~say")) {
           message.delete()
@@ -107,6 +98,19 @@ if (message.content === "~test"){
       message.channel.sendEmbed(embed)
         }
 
+      if(message.content.startsWith('~muted')){
+        let role = message.guild.roles.find('name', 'Muteds');
+        var userp = message.mentions.member.first()
+      
+        if(message.member.roles.find('name', 'Muteds')){
+          Guild.member(userp).addRole(role)
+          message.reply("Role ajouté avec succés")
+        }else{
+          Guild.member(userp).removeRole(role)
+          message.reply("Role retiré avec succés !")
+        }
+      }
+
         if(message.content === "~infobot"){
           let bicon1 = bot.user.displayAvatarURL;
           let botembed = new Discord.RichEmbed()
@@ -114,7 +118,7 @@ if (message.content === "~test"){
           .setColor("#15f153")
           .setThumbnail(bicon1)
           .addField("Nom du bot", bot.user.username)
-          .addField("Créer le", bot.user.createdAt)
+          .addField("Créer le", bot.user.createdAt);
       
           message.channel.send(botembed);
         }
