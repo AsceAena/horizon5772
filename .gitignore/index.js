@@ -52,11 +52,11 @@ bot.on('message', message => {
           }
 
     
-          if (message.startsWith === "~avatar") {
+          if (startsWith === "~avatar") {
             let usera = message.users.first()  || message.author;
         
         let embed5 = new Discord.RichEmbed()
-        .setAuthor('${user.username}')
+        .setDescription("${usera.username}")
           .setImage(usera.displayAvatarURL)
           .setColor("RANDOM")
             message.channel.send({embed5})
