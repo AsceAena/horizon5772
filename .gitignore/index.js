@@ -16,7 +16,7 @@ bot.on('guildMemberAdd', member => {
   const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
   var embed = new Discord.RichEmbed()
   .setColor('#FF4500')
-  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n Nous t'invitons à lire les informations complémetaires dans le channel <#513811643172388910>, ainsi qu'à __lire le réglement__, <#513815192698617883> ! \n \n Bonne visite à La Friterie et bon appétit !! 🍟`)
+  .setDescription(`:inbox_tray:  **Bienvenue à <@${member.user.id}> qui nous rejoint à ${serverTag} !!** \n \n Nous t'invitons à lire les informations complémetaires dans le channel <#513811643172388910>, ainsi qu'à __lire le réglement__, <#513815192698617883> ! \n \n Bonne visite à La Friterie et bon appétit !! 🍟`)
   .setImage(member.avatarURL)
   return welcomechannel.send({embed})
 });
@@ -34,12 +34,10 @@ bot.on('message', message => {
         if (message.content === prefix + "start"){
             message.channel.sendMessage("Bot en cours d'éxecution !");
         }
-    
 
 
     
-        
-        if (message.content === "~test"){
+         if (message.content === "~test"){
             message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
               }
           
@@ -54,9 +52,12 @@ bot.on('message', message => {
           }
 
     
-          if (message.content === "~avatar") {
-        var embed5 = new Discord.RichEmbed()
-          .setImage(message.author.avatarURL)
+          if (message.startsWith === "~avatar") {
+            let usera = message.users.first()  || message.author;
+        
+        let embed5 = new Discord.RichEmbed()
+        .setAuthor('${user.username}')
+          .setImage(usera.displayAvatarURL)
           .setColor("RANDOM")
             message.channel.send({embed5})
           }
@@ -186,7 +187,8 @@ bot.on('message', message => {
   message.channel.sendEmbed(embed1)
     }
       
-     var randhug = 0
+
+    var randhug = 0
 
         function random(min, max){
           min = Math.ceil(0);
@@ -227,10 +229,8 @@ bot.on('message', message => {
       message.channel.sendEmbed(embed)
             console.log(randhug);
         }
-        
-    }
-                
-                
+     }
+
 
      });
 
