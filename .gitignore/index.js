@@ -77,7 +77,7 @@ if (message.content === "~test"){
 
       if(message.content === "~avatarbot"){
         var embbed = new Discord.RichEmbed()
-        .setImage(guild.avatarURL)
+        .setImage(message.guild.avatarURL)
           .setColor('RANDOM')
             message.channel.send(embbed);
           }
