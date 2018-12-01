@@ -35,13 +35,10 @@ bot.on('message', message => {
             message.channel.sendMessage("Bot en cours d'éxecution !");
         }
 
-
-    
-         if (message.content === "~test"){
+if (message.content === "~test"){
             message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
               }
           
-    
     if (message.content.split(" ")[0] == "~embed"){//EMBED
              message.delete()
              var embed = new Discord.RichEmbed()
@@ -50,8 +47,9 @@ bot.on('message', message => {
             console.log("Embed")
             message.channel.send({embed});
           }
-        if(message.content === "~avatar"){
-          message.reply("merci de mentionner un utilisateur valide !")
+        
+          if(message.content === "~avatar"){
+          message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
         }else{
           if(message.content.startsWith('~avatar')) {
             var user = message.mentions.users.first();
@@ -61,10 +59,10 @@ bot.on('message', message => {
             message.channel.send(embed);
           }}
           
-  
-       if(message.content === "~infodiscord") { 
+  if(message.content === "~infodiscord") { 
              var embed = new Discord.RichEmbed()
              .setTitle("Information du Discord")
+             .setAuthor("test")
              .addField("Nom du discord", message.guild.name)
             .addField("Crée le", message.guild.createdAt)
             .addField("Tu as rejoins le", message.member.joinedAt)
@@ -75,14 +73,13 @@ bot.on('message', message => {
          message.channel.sendEmbed(embed)
          }
 
-        
-         if (message.content.startsWith("~say")) {
+       if (message.content.startsWith("~say")) {
           message.delete()
           const str = message.content.substring("~say".length)
           message.channel.sendMessage(str)
         }
 
-        if(message.content === "~help") { 
+      if(message.content === "~help") { 
           var embed = new Discord.RichEmbed()
           .setTitle("Liste des commandes :")
           .addField("**~LaCarte**", "Renseignez vous sur nos produits à consommer !")
@@ -90,6 +87,7 @@ bot.on('message', message => {
          .addField("**~embed : **", "Créer des Embed.")
          .addField("**~avatar :**", "Afficher votre propre avatar.")
          .addField("**~infodiscord :**", "Infos à propos du serveur.")
+         .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
          .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
          .addField("**~sondage :**", "Faites voter vos idées !.")
          .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
@@ -98,8 +96,15 @@ bot.on('message', message => {
       message.channel.sendEmbed(embed)
         }
 
+        if(message.content === "~cmdbump"){
+        var embedcmd = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .addField("``?bump``", "*Bump_Bot*")
+        .addField("``!disboard bump``", "*Disboard*")
+        message.channel.sendEmbed(embedcmd)
+        }
 
-        if (message.content.split(" ")[0] == "~sondage"){//sondage
+      if (message.content.split(" ")[0] == "~sondage"){//sondage
           message.delete()
           var embed = new Discord.RichEmbed()
           .setColor("RANDOM")
@@ -229,6 +234,7 @@ bot.on('message', message => {
       message.channel.sendEmbed(embed)
             console.log(randhug);
         }
+
      }
 
 
