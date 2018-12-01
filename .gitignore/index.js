@@ -69,10 +69,19 @@ if (message.content === "~test"){
             .addField("Tu as rejoins le", message.member.joinedAt)
             .addField("Utilisateur sur le discord", message.guild.memberCount)
             .addField("Nombre de catégories et de salons", message.guild.channels.size)
+            .addField("Commande pour afficher l'avatar du serveur :", "*~avatarbot*")
             .setFooter("La Friterie")
             .setColor("RANDOM")
          message.channel.sendEmbed(embed)
          }
+
+      if(message.content === "~avatarbot"){
+        var embbed = new Discord.RichEmbed()
+        .setImage(guild.avatarURL)
+          .setColor('RANDOM')
+            message.channel.send(embbed);
+          }
+      
 
        if (message.content.startsWith("~say")) {
           message.delete()
@@ -104,8 +113,8 @@ if (message.content === "~test"){
           .setDescription("Information du bot")
           .setColor("#15f153")
           .setThumbnail(bicon1)
-          .addField("Bot Name", bot.user.username)
-          .addField("Created On", bot.user.createdAt);
+          .addField("Nom du bot", bot.user.username)
+          .addField("Créer le", bot.user.createdAt)
       
           message.channel.send(botembed);
         }
