@@ -48,24 +48,19 @@ bot.on('message', message => {
             .setColor("#FF7F50")
             .setDescription(message.content.slice("~embed ".length))
             console.log("Embed")
-            message.channel.send({embed})
+            message.channel.send({embed});
           }
-
-          if (message.content.startsWith('~avatar')) {
+        if(message.content === "~avatar"){
+          message.reply("merci de mentionner un utilisateur valide !")
+        }else{
+          if(message.content.startsWith('~avatar')) {
             var user = message.mentions.users.first();
             let embed = new Discord.RichEmbed()
           .setImage(user.avatarURL)
           .setColor('RANDOM')
-            message.channel.send(embed)
-          }else{
-            if(message.content === "~avatar"){
-            var user1 = message.author
-            let embed = new Discord.RichEmbed()
-          .setImage(user1.avatarURL)
-          .setColor('RANDOM')
-            message.channel.send(embed)
-            }};
-      
+            message.channel.send(embed);
+          }}
+          
   
        if(message.content === "~infodiscord") { 
              var embed = new Discord.RichEmbed()
