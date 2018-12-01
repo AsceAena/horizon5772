@@ -99,31 +99,10 @@ if (message.content === "~test"){
       message.channel.sendEmbed(embed)
         }
 
-      if(message.content.startsWith('~muted')){
-        let role = message.guild.roles.find('name', 'Muteds');
-        var userp = message.mentions.member.first()
-      
-        if(message.member.roles.find('name', 'Muteds')){
-          Guild.member(userp).addRole(role)
-          message.reply("Role ajouté avec succés")
-        }else{
-          Guild.member(userp).removeRole(role)
-          message.reply("Role retiré avec succés !")
-        }
-      }
 
-      if (message.content === '!memes') {
-        // Get the buffer from the 'memes.txt', assuming that the file exists
-        const buffer = fs.readFileSync('./memes.txt');
-
-        /**
-         * Create the attachment using Attachment,
-         * overwritting the default file name to 'memes.txt'
-         * Read more about it over at
-         * http://discord.js.org/#/docs/main/stable/class/Attachment
-         */
+      if (message.content === '~testest') {
+        const buffer = fs.readFileSync('./test.txt');
         const attachment = new Attachment(buffer, 'test.txt');
-        // Send the attachment in the message channel with a content
         message.channel.send(`${message.author}, here are your memes!`, attachment);
     }
 
