@@ -114,13 +114,13 @@ if (message.content === "~test"){
       }
       purge(); 
 
-  }
+  };
     
 
    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
-      .setColor("#FF7F50")
+      .setColor("#FF7F50")  
       .setDescription(message.content.slice("~embed ".length))
         message.channel.send({embed});
       }
