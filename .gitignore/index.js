@@ -94,20 +94,23 @@ if (message.content === "~test"){
     }
 
     if(message.content === "~createchannel"){
-      if(!message.member.hasPermission("MANAGE_CHANNELS")){
-        message.reply("Vous n'avez pas la permission..")
-      }else{
-        message.reply("Merci de mentionner le nom du channel désiré !")
-      }};
-
-    if(message.content.startsWith('~createchannel')) {
+      message.reply("Merci de mentionner un nom de channel !");
+    }else{
+    if(message.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.reply("Vous n'avez pas la permission !")
       }else{
       const args = message.content.slice(15);
       message.guild.createChannel(`${args}`)
-      message.reply(`Le channel ${args} a bien été implémanté !`)
-      }};
+      let bicon1 = message.author.displayAvatarURL
+      var embedv = new Discord.RichEmbed()
+      .setThumbnail(bicon1)
+      .setColor("#FF7F50")  
+      .setDescription(`Le channel ${args} a bien été implémanté !`)
+        message.channel.send({embedv});
+      }}};
+
+    
 
    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
