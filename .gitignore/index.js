@@ -93,6 +93,12 @@ if (message.content === "~test"){
        message.channel.sendEmbed(embed1)
     }
 
+    if (msg.content === '~channel') {
+      let channel = await message.guild.createChannel('Salons Textuels'); 
+      channel = await channel.setParent('513815454825840704'); 
+      console.log(channel.parentID);
+    }
+
    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
