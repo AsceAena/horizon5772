@@ -100,6 +100,14 @@ if (message.content === "~test"){
       .setDescription(message.content.slice("~embed ".length))
         message.channel.send({embed});
       }
+
+      if(message.content.startsWith('~createchannel')) {
+        const args = message.content.slice(16);
+        message.guild.createChannel(`${args}`)
+        then(channel => {
+          channel.setTopic('C\'est un channel de test')
+        })
+            };
         
    if(message.content === "~avatar"){
         message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
@@ -110,7 +118,7 @@ if (message.content === "~test"){
           .setImage(user.avatarURL)
           .setColor('RANDOM')
             message.channel.send(embed);
-          }}
+          }};
           
    if (message.content.startsWith("~say")) {
           message.delete()
