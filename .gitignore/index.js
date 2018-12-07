@@ -93,30 +93,6 @@ if (message.content === "~test"){
        message.channel.sendEmbed(embed1)
     }
 
-    if (msg.startsWith(prefix + '~clear')) { 
-      async function purge() {
-          message.delete(); 
-          if (!message.member.roles.find("name", "Robotos")) { 
-              message.channel.send('You need the \`Robotos\` role to use this command.'); 
-              return; 
-          }
-
-          if (isNaN(args[0])) {
-              message.channel.send('Merci d\'indiquer un nombre de message à effacer. \n Usage: ' + prefix + 'clear <amount>'); 
-              return;
-          }
-
-          const fetched = await message.channel.fetchMessages({limit: args[0]});
-          console.log(fetched.size + ' Messages trouvés, supression...'); 
-
-          message.channel.bulkDelete(fetched)
-              .catch(error => message.channel.send(`Error: ${error}`)); 
-      }
-      purge(); 
-
-  };
-    
-
    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
