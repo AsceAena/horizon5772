@@ -102,10 +102,8 @@ if (message.content === "~test"){
       }
 
       if(message.content.startsWith('~createchannel')) {
-        const args = message.content.slice(16);
-        message.guild.createChannel(`${args}`),then(channel => {
-          channel.setTopic('C\'est un channel de test')
-        })
+        const args = message.content.slice(15);
+        message.guild.createChannel(`${args}`)
             };
         
    if(message.content === "~avatar"){
