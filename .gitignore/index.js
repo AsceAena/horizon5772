@@ -103,8 +103,7 @@ if (message.content === "~test"){
 
       if(message.content.startsWith('~createchannel')) {
         const args = message.content.slice(16);
-        message.guild.createChannel(`${args}`)
-        then(channel => {
+        message.guild.createChannel(`${args}`),then(channel => {
           channel.setTopic('C\'est un channel de test')
         })
             };
