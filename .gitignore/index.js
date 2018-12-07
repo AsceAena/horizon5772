@@ -93,6 +93,22 @@ if (message.content === "~test"){
        message.channel.sendEmbed(embed1)
     }
 
+    if(message.content === "~createchannel"){
+      if(!message.member.hasPermission("MANAGE_CHANNELS")){
+        message.reply("Vous n'avez pas la permission..")
+      }else{
+        message.reply("Merci de mentionner le nom du channel désiré !")
+      }};
+
+    if(message.content.startsWith('~createchannel')) {
+      if(!message.member.hasPermission("MANAGE_CHANNELS")){
+        message.reply("Vous n'avez pas la permission !")
+      }else{
+      const args = message.content.slice(15);
+      message.guild.createChannel(`${args}`)
+      message.reply(`Le channel ${args} a bien été implémanté !`)
+      }};
+
    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
@@ -100,11 +116,6 @@ if (message.content === "~test"){
       .setDescription(message.content.slice("~embed ".length))
         message.channel.send({embed});
       }
-
-      if(message.content.startsWith('~createchannel')) {
-        const args = message.content.slice(15);
-        message.guild.createChannel(`${args}`)
-            };
         
    if(message.content === "~avatar"){
         message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
