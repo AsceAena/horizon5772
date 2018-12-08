@@ -191,9 +191,8 @@ if(message.content === "~deletechannel"){
       var argt22 = argt11.toLocaleLowerCase()
       var limit = message.content.slice(17)
       var limito = parseInt(limit)
-      var channelrsus = message.guild.channels.find('name', `${argss22}`)
-      message.guild.createChannel(`${argt22}`, 'voice',)
-      new TempChannel(msg).then(channel => {
+      new TempChannel(msg)
+      message.guild.createChannel(`${argt22}`, 'voice',).then(channel => {
       channel.setParent('520741915570864131')
       channel.setUserLimit(limito)
       
