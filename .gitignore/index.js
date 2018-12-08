@@ -103,7 +103,7 @@ if (message.content === "~test"){
       }else{
       const args = message.content.slice(15)
       const arg2 = message.content.slice(20)
-      message.guild.createChannel(`${arg2}`, `${args}` ) 
+      message.guild.createChannel(`${arg2}`, args) 
       var embedvv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
