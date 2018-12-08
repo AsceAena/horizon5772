@@ -229,8 +229,8 @@ if(message.content === "~deletechannel"){
     }
 }
 
-    if(message.content === "~createpvchannel"){
-        message.reply("Merci de mentionner le nom du channel privé avec la commande  ``~createpvchannel <Nom>`` !")
+    if(message.content === "~cc"){
+        message.reply("Merci de mentionner le nom du channel privé avec la commande  ``~cc <Nom>`` !")
       }else{
        if(message.content.startsWith('~cc')) {
          if(!message.member.hasPermission("MANAGE_CHANNELS")){
