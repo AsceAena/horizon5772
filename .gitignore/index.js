@@ -127,7 +127,9 @@ if(message.content === "~deletechannel"){
     }else{
       const argss = message.content.slice(15)
       const argss2 = argss.toLocaleLowerCase()
-      message.guild.channel.delete(`${argss2}`, 'text',).then(embedMessage => {
+      const channelrss = message.guild.channels.find('name', `${argss2}`)
+       channelrss.delete(`${argss2}`, 'text',).then(console => {
+         console.log("cc")
         var embedss = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(`Le channel textuel ${argss} a bien été supprimé !`)
