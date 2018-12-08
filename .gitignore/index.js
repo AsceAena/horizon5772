@@ -102,8 +102,8 @@ if (message.content === "~test"){
     .addField("**~createvchannel : **", "Créer votre channel vocal avec ``~createvchannel <nom>``")
     .addField("**~createpvchannel : **", "Créer votre channel vocal privé avec ``~createtchannel <nombre de place allant jusque 10> <nom>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec ``~deletechannel <nom>``")
-    .setColor("#8800fc")
-       message.channel.sendEmbed(embed1)
+    .setColor("#FF4500")
+       message.channel.sendEmbed(embedz)
    }
 
    if(message.content === "~createtchannel"){
@@ -346,3 +346,4 @@ if(message.content === "~deletechannel"){
      
 
     });
+
