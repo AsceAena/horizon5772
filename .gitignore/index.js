@@ -110,8 +110,12 @@ if (message.content === "~test"){
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
          message.channel.send(embedvv).then(embedMessage => {
             embedMessage.react("👍")
-            let channelv = member.guild.channels.find('name', `${args}`);
-          channelv.send(`Voici votre channel textuel !`);
+            const channelcr = member.guild.channels.find('name', `${args}`)
+            var embedxx = new Discord.RichEmbed()
+            .setColor('#FF4500')
+            .setDescription('Voici votre channel !')
+            .setImage(member.avatarURL)
+            return channelcr.send({embedxx})
         })
       })
   }}};
