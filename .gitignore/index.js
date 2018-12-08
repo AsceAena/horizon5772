@@ -114,7 +114,7 @@ if (message.content === "~test"){
             .setColor('#FF4500')
             .setDescription('Voici votre channel !')
             .setImage(member.avatarURL)
-            return channelcr.send(embed)
+            message.channelcr.send(embed)
         })
   }}};
 
