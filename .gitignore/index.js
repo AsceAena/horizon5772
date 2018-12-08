@@ -128,17 +128,10 @@ if(message.content === "~deletechannel"){
       const argss = message.content.slice(15)
       const argss2 = argss.toLocaleLowerCase()
       const channelrss = message.guild.channels.find('name', `${argss2}`)
-       channelrss.delete(`${argss2}`, 'text',).then(console => {
-         console.log("cc")
-        var embedss = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setDescription(`Le channel textuel ${argss} a bien été supprimé !`)
-        channel.sendEmbed(embedss)
+       channelrss.delete(`${argss2}`, 'text',).then(message => {
+         message.reply(`Le channel ${argss2} a bien été supprimé !`)
       })
-    }
-  }
-  
-};
+    }}};
 
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
