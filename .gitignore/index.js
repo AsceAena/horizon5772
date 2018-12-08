@@ -114,7 +114,6 @@ if (message.content === "~test"){
      const channelrc = message.guild.channels.find('name', `${args2}`)
         var embedd = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setTitle(`${args}`)
         .setDescription(`**Voici votre channel ! <@${message.author.id}>**`)
         channelrc.sendEmbed(embedd)
     })
