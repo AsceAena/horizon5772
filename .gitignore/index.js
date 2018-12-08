@@ -386,7 +386,7 @@ if(message.content === "~ping"){
   }
   
   bot.on("message", msg => {
-      if (msg.content.startsWith("~createchannel")) {
+      if (msg.content.startsWith("~cc")) {
           new TempChannel(msg);
           msg.channel.send("Channel créé !");
       }
