@@ -103,7 +103,7 @@ if (message.content === "~test"){
      }else{
       const args = message.content.slice(16)
       const args2 = args.toLocaleLowerCase
-      message.guild.createChannel(`${args}`, 'text',).then(channel => {
+      message.guild.createChannel(`${args2}`, 'text',).then(channel => {
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
     .setThumbnail(message.author.displayAvatarURL)
@@ -111,10 +111,10 @@ if (message.content === "~test"){
     .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
      message.channel.send(embedvv)
      const channelrc = message.guild.channels.find('name', `${args2}`)
-        var embed = new Discord.RichEmbed()
+        var embedd = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setDescription(`**Voici votre channel !** <@${message.author.id}> `)
-        channelrc.sendEmbed(embed)
+        .setDescription(`**Voici votre channel !**`)
+        channelrc.sendEmbed(embedd)
     })
 }}};
 
