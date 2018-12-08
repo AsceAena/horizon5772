@@ -95,7 +95,7 @@ if (message.content === "~test"){
    }
 
    if(message.content === "~createtchannel"){
-    message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
+    message.reply("Merci de mentionner un nom de channel avec la commande  ``~createtchannel <Nom>`` !")
   }else{
    if(message.content.startsWith('~createtchannel')) {
      if(!message.member.hasPermission("MANAGE_CHANNELS")){
@@ -107,7 +107,7 @@ if (message.content === "~test"){
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
     .setColor("RANDOM")  
-    .setDescription(`Votre channel textuel ${args} a bien été implémanté ! <#${channel.id}>`)
+    .setDescription(`Votre channel textuel #${args} a bien été implémanté ! <#${channel.id}>`)
      message.channel.send(embedvv)
      const channelrc = message.guild.channels.find('name', `${args2}`)
         var embedd = new Discord.RichEmbed()
@@ -118,24 +118,61 @@ if (message.content === "~test"){
     })
 }}};
 
-if(message.content === "~deletechannel"){
-  message.reply("Merci de mentionner un channel avec la commande ``~deletechannel`` !")
+if(message.content === "~deletechannelt"){
+  message.reply("Merci de mentionner un channel avec la commande ``~deletechannelt`` !")
 }else{
-  if(message.content.startsWith("~deletechannel")){
+  if(message.content.startsWith("~deletechannelt")){
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas pas la permission.")
     }else{
-      const argss = message.content.slice(15)
+      const argss = message.content.slice(16)
       const argss2 = argss.toLocaleLowerCase()
       const channelrss = message.guild.channels.find('name', `${argss2}`)
       const channelip = message.guild.channels.find('name', `invocation`)
        channelrss.delete(`${argss2}`, 'text',).then(message => {
          var embedss = new Discord.RichEmbed()
          .setColor('#FF4500')
-         .setDescription(`Le channel ${argss2} a bien été supprimé !`)
+         .setDescription(`Le channel #${argss2} a bien été supprimé !`)
          channelip.sendEmbed(embedss)
       })
     }}};
+
+    if(message.content === "~createvchannel"){
+      message.reply("Merci de mentionner un nom de channel avec la commande  ``~createvchannel <Nom>`` !")
+    }else{
+     if(message.content.startsWith('~createvchannel')) {
+       if(!message.member.hasPermission("MANAGE_CHANNELS")){
+        message.reply("Vous n'avez pas la permission.")
+       }else{
+        const argt = message.content.slice(16)
+        const argt2 = args.toLocaleLowerCase()
+        message.guild.createChannel(`${argt2}`, `voice`,).then(channel => {
+        channel.setParent('520741915570864131')
+        var embedvtv = new Discord.RichEmbed()
+      .setColor("RANDOM")  
+      .setDescription(`Votre channel vocal #${argt} a bien été implémanté ! <#${channel.id}>`)
+       message.channel.send(embedvtv)
+      })
+  }}};
+
+  if(message.content === "~deletechannelv"){
+    message.reply("Merci de mentionner un channel avec la commande ``~deletechannelt`` !")
+  }else{
+    if(message.content.startsWith("~deletechannelv")){
+      if(!message.member.hasPermission("MANAGE_CHANNELS")){
+        message.reply("Vous n'avez pas pas la permission.")
+      }else{
+        const argtss = message.content.slice(16)
+        const argtss2 = argtss.toLocaleLowerCase()
+        const channelrsss = message.guild.channels.find('name', `${argtss2}`)
+        const channelips = message.guild.channels.find('name', `invocation`)
+         channelrsss.delete(`${argtss2}`, 'text',).then(message => {
+           var embedsts = new Discord.RichEmbed()
+           .setColor('#FF4500')
+           .setDescription(`Le channel #${argtss2} a bien été supprimé !`)
+           channelips.sendEmbed(embedsts)
+        })
+      }}};
 
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
