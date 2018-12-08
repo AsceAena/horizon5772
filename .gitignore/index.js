@@ -161,6 +161,28 @@ if(message.content === "~deletechannel"){
       })
     }}};
 
+    if(message.content === "~mute"){
+      message.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``")
+    }
+    if(message.content.startsWith("~mute")){
+      if(!message.member.hasPermission("KICK_MEMBERS")){
+        message.reply("Vous n'avez pas la permission de mute !")
+      }else{
+        let mute_role = message.guild.roles.find("name", "Mute");
+      let memberd = message.mentions.members.first();
+      member.addRole(mute_role); // <- this assign the role
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000); // <- sets a timeout to unmute the user.
+      var embedd = new Discord.RichEmbed()
+        .setColor('#FF4500')
+        .setTitle(`${MUTE}`)
+        .setDescription(memberd `a été muté.. Bravo à lui !`)
+        message.channel.sendEmbed(embedd)
+      }
+    };
+
+      
+    
+
 if(message.content === "~clear"){
   message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
 }else{
