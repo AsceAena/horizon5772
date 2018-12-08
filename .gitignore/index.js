@@ -418,7 +418,7 @@ if(message.content === "~ping"){
       }else{
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
-      var argt11 = message.content.slice(6)
+      var argt11 = message.content.slice(7)
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000 * argt11)
         var embedsys = new Discord.RichEmbed()
