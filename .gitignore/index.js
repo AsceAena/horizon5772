@@ -384,10 +384,10 @@ if(message.content === "~ping"){
           this.channel.delete();
       }
   }
-  
+
   bot.on('message', msg => {
-    if (message.content === "+start"){
-        message.channel.sendMessage("Bot en cours d'éxecution !");
+    if (msg.content === "+start"){
+        msg.channel.sendMessage("Bot en cours d'éxecution !");
     }
      if (msg.content.startsWith("~createchannel")) {
          new TempChannel(msg);
