@@ -102,7 +102,8 @@ if (message.content === "~test"){
         message.reply("Vous n'avez pas la permission.")
       }else{
       const args = message.content.slice(15)
-      message.guild.createChannel(`${args}`)
+      message.guild.createChannel(`${args}`).then.setParent(msg.channel.parent.id)
+      channel.setParent
       var embedvv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
