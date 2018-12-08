@@ -102,6 +102,7 @@ if (message.content === "~test"){
       message.reply("Vous n'avez pas la permission.")
      }else{
       const args = message.content.slice(16)
+      const args2 = args.toLocaleLowerCase
       message.guild.createChannel(`${args}`, 'text',).then(channel => {
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
@@ -109,10 +110,10 @@ if (message.content === "~test"){
     .setColor("RANDOM")  
     .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
      message.channel.send(embedvv)
-     const channelrc = message.guild.channels.find('name', `${args}`)
+     const channelrc = message.guild.channels.find('name', `${args2}`)
         var embed = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setDescription(`**Voici votre channel !**`)
+        .setDescription(`**Voici votre channel !** <@${message.author.id}> `)
         channelrc.sendEmbed(embed)
     })
 }}};
