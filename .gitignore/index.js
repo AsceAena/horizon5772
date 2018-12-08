@@ -106,14 +106,13 @@ if (message.content === "~test"){
       message.guild.createChannel(`${args2}`, 'text',).then(channel => {
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
-      let bicon7 = message.author.displayAvatarURL
-     .setThumbnail(bicon7)
     .setColor("RANDOM")  
     .setDescription(`Votre channel textuel ${args} a bien été implémanté ! <#${channel.id}>`)
      message.channel.send(embedvv)
      const channelrc = message.guild.channels.find('name', `${args2}`)
         var embedd = new Discord.RichEmbed()
         .setColor('#FF4500')
+        .setTitle(`${args}`)
         .setDescription(`**Voici votre channel ! <@${message.author.id}>**`)
         channelrc.sendEmbed(embedd)
     })
