@@ -133,7 +133,7 @@ if(message.content === "~deletechannel"){
         var embedss = new Discord.RichEmbed()
         .setColor("RANDOM")
         .setDescription(`Le channel textuel ${argss} a bien été supprimé !`)
-        message.channel.sendEmbed(embedss)
+        channel.sendEmbed(embedss)
       })
     }
   }
