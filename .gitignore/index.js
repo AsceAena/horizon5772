@@ -48,6 +48,7 @@ if (message.content === "~test"){
      .addField("**~avatar :**", "Afficher votre propre avatar.")
      .addField("**~infodiscord :**", "Infos à propos du serveur.")
      .addField("**~infobot : **", "Afficher des renseignement à propos du bot")
+     .addField("**~createchannel : **", "Créer vos propres channels !")
      .addField("**~cmdbump :**", "Affiche les commandes pour bumper le serveur !! ")
      .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
      .addField("**~sondage :**", "Faites voter vos idées !.")
@@ -94,18 +95,18 @@ if (message.content === "~test"){
     }
 
     if(message.content === "~createchannel"){
-      message.reply("Merci de mentionner un nom de channel !")
+      message.reply("Merci de mentionner un nom de channel avec la commande  ```~createchannel <Nom>``` !")
     }else{
     if(message.content.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
-        message.reply("Pas la permission")
+        message.reply("Vous n'avez pas la permission.")
       }else{
         const args = message.content.slice(15)
       message.guild.createChannel(`${args}`)
       var embedv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
-      .setDescription(`Le channel ${args} a bien été implémanté !`)
+      .setDescription(`Votre channel a bien été implémanté !`)
         message.channel.send({embedv});
       }}};
 
