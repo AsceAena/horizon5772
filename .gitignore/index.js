@@ -386,19 +386,13 @@ if(message.content === "~ping"){
       }
   }
 
-    bot.on('message', msg => {
-      if(message.content === "~createchannel"){
-      message.reply("Merci de préciser un nom ainsi que la limite de personne avec la commande ``~createchannel <\"nom\"> <taille limite>``")
-    }else{
-      if(message.content.startsWith('~createchannel')) {
-        if(!message.member.hasPermission("MANAGE_CHANNELS")){
-         message.reply("Vous n'avez pas la permission.")
-        }else{
+bot.on('message', msg => {
+      if(message.content.startsWith("~createchannel")){
           new TempChannel(msg);
           msg.channel.send("Channel créé !");
           }
-    }
-  
- }});
+});
+
+ 
 
   
