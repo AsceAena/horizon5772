@@ -95,28 +95,28 @@ if (message.content === "~test"){
    }
 
    if(message.content === "~createtchannel"){
-        message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
-      }else{
-       if(message.content.startsWith('~createtchannel')) {
-         if(!message.member.hasPermission("MANAGE_CHANNELS")){
-          message.reply("Vous n'avez pas la permission.")
-         }else{
-          const args = message.content.slice(16)
-          message.guild.createChannel(`${args}`, 'text',).then(channel => {
-          channel.setParent('520741915570864131')
-          var embedvv = new Discord.RichEmbed()
-        .setThumbnail(message.author.displayAvatarURL)
-        .setColor("RANDOM")  
-        .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
-         message.channel.send(embedvv)
-          let channelcr = member.guild.channels.find('name', `${args}`)
-            var embed = new Discord.RichEmbed()
-            .setColor('#FF4500')
-            .setDescription('Voici votre channel !')
-            .setImage(member.avatarURL)
-            message.channelcr.send(embed)
-        })
-  }}};
+    message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
+  }else{
+   if(message.content.startsWith('~createtchannel')) {
+     if(!message.member.hasPermission("MANAGE_CHANNELS")){
+      message.reply("Vous n'avez pas la permission.")
+     }else{
+      const args = message.content.slice(16)
+      message.guild.createChannel(`${args}`, 'text',).then(channel => {
+      channel.setParent('520741915570864131')
+      var embedvv = new Discord.RichEmbed()
+    .setThumbnail(message.author.displayAvatarURL)
+    .setColor("RANDOM")  
+    .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
+     message.channel.send(embedvv)
+      let channelcr = member.guild.channels.find('name', `${args}`)
+        var embed = new Discord.RichEmbed()
+        .setColor('#FF4500')
+        .setDescription('Voici votre channel !')
+        .setImage(member.avatarURL)
+        channelcr.send({embed})
+    })
+}}};
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
