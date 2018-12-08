@@ -102,7 +102,7 @@ if (message.content === "~test"){
       message.reply("Vous n'avez pas la permission.")
      }else{
       const args = message.content.slice(16)
-      const args2 = args.toLocaleLowerCase
+      const args2 = args.toLocaleLowerCase()
       message.guild.createChannel(`${args2}`, 'text',).then(channel => {
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
