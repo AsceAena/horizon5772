@@ -190,7 +190,7 @@ if(message.content === "~deletechannel"){
 
         this.getArgs();
         this.create();
-        this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 5);
+        this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 1);
         
     }
 
