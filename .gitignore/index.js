@@ -387,8 +387,12 @@ if(message.content === "~ping"){
   
   bot.on("message", msg => {
       if (msg.content.startsWith("~createchannel")) {
-          new TempChannel(msg);
+        if(message.member.roles.find("name", "Habitués")){
+         new TempChannel(msg);
           msg.channel.send("Channel créé !");
-      }
+        }else{
+          message.reply("Vous n'avez pas le rôle requis..")
+         
+        }}
   });
 
