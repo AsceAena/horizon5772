@@ -187,18 +187,46 @@ if(message.content === "~deletechannel"){
      if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas la permission.")
      }else{
-      var argt11 = message.content.slice(19)
-      var argt22 = argt11.toLocaleLowerCase()
-      var limit = message.content.slice(17)
-      var limito = parseInt(limit)
-      message.guild.createChannel(`${argt22}`, 'voice',).then(channel => {
-      channel.setParent('520741915570864131')
-      channel.setUserLimit(limito)
-      var embedvtv = new Discord.RichEmbed()
-    .setColor("RANDOM")  
-    .setDescription(`Votre channel vocal #${argt11} a bien été implémanté ! <#${channel.id}>`)
-     message.channel.send(embedvtv)
-    })
+      class TempChannel {
+        constructor(msg) {
+            this.msg = msg;
+            this.guild = msg.guild;
+            this.channel;
+            this.name;
+            this.max;
+            this.getArgs();
+            this.create();
+            this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 5);
+        }
+         getArgs() {
+            this.name = this.msg.content.split('"')[1];
+            this.max = Number(this.msg.content.split('"')[2].split(" ")[1]);
+        }
+        create() {
+            this.guild.createChannel(this.name, "voice")
+                .then(chan => {
+                    this.get(chan);
+                })
+                .catch(console.error);}
+    
+        get(chan) {
+            this.channel = chan;
+            this.channel.setParent("520741915570864131")
+                .catch(console.catch);
+            this.channel.edit({
+                userLimit: this.max
+            })}
+        autodelete() {
+            if (this.channel.members.array().length == 0) {
+                this.delete();
+                clearInterval(this.interval);
+            }}
+        delete() {
+            this.channel.delete();
+        }}
+        new TempChannel(msg);
+        msg.channel.send("Channel créé !");
+   
 }}};
 
 if(message.content === "~clear"){
