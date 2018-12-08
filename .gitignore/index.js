@@ -187,6 +187,22 @@ if(message.content === "~deletechannel"){
      if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas la permission.")
      }else{
+      class TempChannel {
+        constructor(msg) {
+            this.msg = msg;
+            this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 1);
+            }
+  autodelete() {
+    if (this.channel.members.array().length == 0) {
+        this.delete();
+        clearInterval(this.interval);
+    }
+  }
+  
+  delete() {
+    this.channel.delete();
+  }
+      }
       var argt11 = message.content.slice(19)
       var argt22 = argt11.toLocaleLowerCase()
       var limit = message.content.slice(17)
@@ -201,22 +217,6 @@ if(message.content === "~deletechannel"){
     .setDescription(`Votre channel vocal #${argt11} a bien été implémanté ! <#${channel.id}>`)
      message.channel.send(embedvtv)
     })
-    class TempChannel {
-      constructor(msg) {
-          this.msg = msg;
-          this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 1);
-          }
-autodelete() {
-  if (this.channel.members.array().length == 0) {
-      this.delete();
-      clearInterval(this.interval);
-  }
-}
-
-delete() {
-  this.channel.delete();
-}
-    }
     
 }}};
 
