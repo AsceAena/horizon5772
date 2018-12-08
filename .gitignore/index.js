@@ -400,7 +400,7 @@ if(message.content === "~ping"){
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
-             message.channel.sendEmbed(embed1)
+             msg.channel.sendEmbed(embed1).catch(err => console.log(err));
         }}}
      
   });
