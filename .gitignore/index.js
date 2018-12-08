@@ -209,7 +209,7 @@ if(message.content === "~deletechannel"){
 
     get(chan) {
         this.channel = chan;
-        this.channel.setParent("520986919287521291")
+        this.channel.setParent("520741915570864131")
             .catch(console.catch);
 
         this.channel.edit({
