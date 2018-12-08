@@ -394,11 +394,11 @@ if(message.content === "~ping"){
         if(!message.member.hasPermission("MANAGE_CHANNELS")){
          message.reply("Vous n'avez pas la permission.")
         }else{
-      if (msg.content.startsWith("~createchannel")) {
-        new TempChannel(msg);
-        msg.channel.send("Channel créé !");
-    }else{
-      message.reply("Merci de suivre la fomre ``~createchannel <\"nom\"> <taille limite>``")
+           if (msg.content.startsWith("~createchannel")) {
+           new TempChannel(msg);
+           msg.channel.send("Channel créé !");
+          }else{
+           message.reply("Merci de suivre la fomre ``~createchannel <\"nom\"> <taille limite>``")
     }
   }
  }}});
