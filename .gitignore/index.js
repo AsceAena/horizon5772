@@ -110,7 +110,7 @@ if (message.content === "~test"){
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
           message.channel.sendEmbed(embedvv);
           const channelv = member.guild.channels.find('name', `${args}` );
-          channelv.message.reply("Voici votre channel !")
+          channelv.send(`Voici votre channel textuel <@${message.author.user.id}> !`)
         })
           }}};
 
