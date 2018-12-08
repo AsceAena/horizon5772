@@ -347,7 +347,7 @@ if(message.content === "~ping"){
   
           this.getArgs();
           this.create();
-          this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 5);
+          this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 1);
       }
   
       getArgs() {
@@ -365,7 +365,7 @@ if(message.content === "~ping"){
   
       get(chan) {
           this.channel = chan;
-          this.channel.setParent("520986919287521291")
+          this.channel.setParent("520741915570864131")
               .catch(console.catch);
   
           this.channel.edit({
@@ -386,9 +386,12 @@ if(message.content === "~ping"){
   }
   
   bot.on("message", msg => {
-      if (msg.content.startsWith("~cc")) {
+      if (msg.content.startsWith("~createchannel")){
+        if(!message.member.hasPermission("MANAGE_CHANNELS")){
+          message.reply("Vous n'avez pas la permission.")
+      }else{
           new TempChannel(msg);
           msg.channel.send("Channel créé !");
-      }
-  });
+          }
+  }});
 
