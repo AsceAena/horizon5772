@@ -92,45 +92,29 @@ if (message.content === "~test"){
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
     .setColor("#8800fc")
        message.channel.sendEmbed(embed1)
-    }
+   }
 
-    if(message.content === "~createvchannel"){
-      message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
-    }else{
-    if(message.content.startsWith('~createvchannel')) {
-      if(!message.member.hasPermission("MANAGE_CHANNELS")){
-        message.reply("Vous n'avez pas la permission.")
-      }else{
-      const args = message.content.slice(16)
-      message.guild.createChannel(`${args}`, 'voice') 
-      var embedvv = new Discord.RichEmbed()
-      .setThumbnail(message.author.displayAvatarURL)
-      .setColor("#FF7F50")  
-      .setDescription(`Votre channel vocal a bien été implémanté !`)
-        message.channel.sendEmbed(embedvv);
-      }}};
-
-      if(message.content === "~createtchannel"){
+   if(message.content === "~createtchannel"){
         message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
       }else{
-      if(message.content.startsWith('~createtchannel')) {
-        if(!message.member.hasPermission("MANAGE_CHANNELS")){
+       if(message.content.startsWith('~createtchannel')) {
+         if(!message.member.hasPermission("MANAGE_CHANNELS")){
           message.reply("Vous n'avez pas la permission.")
-        }else{
-        const args = message.content.slice(16)
-        message.guild.createChannel(`${args}`, 'text',).then(channel => {
+         }else{
+          const args = message.content.slice(16)
+          message.guild.createChannel(`${args}`, 'text',).then(channel => {
           channel.setParent('520741915570864131')
-        })
-        var embedvv = new Discord.RichEmbed()
+          var embedvv = new Discord.RichEmbed()
         .setThumbnail(message.author.displayAvatarURL)
         .setColor("#FF7F50")  
-        .setDescription(`Votre channel textuel a bien été implémanté !`)
+        .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
           message.channel.sendEmbed(embedvv);
-        }}};
+          const channelv = member.guild.channels.find('name', `${args}` );
+          channelv.message.reply("Voici votre channel !")
+        })
+          }}};
 
-    
-
-   if (message.content.split(" ")[0] == "~embed"){//EMBED
+    if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
       .setColor("#FF7F50")  
