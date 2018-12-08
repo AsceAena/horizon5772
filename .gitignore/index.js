@@ -155,6 +155,27 @@ if(message.content === "~deletechannel"){
       })
   }}};
 
+  if(message.content === "~createpvchannel"){
+    message.reply("Merci de mentionner le nom du channel privé avec la commande  ``~createpvchannel <Nom>`` !")
+  }else{
+   if(message.content.startsWith('~createpvchannel')) {
+     if(!message.member.hasPermission("MANAGE_CHANNELS")){
+      message.reply("Vous n'avez pas la permission.")
+     }else{
+      var argt11 = message.content.slice(19)
+      var argt22 = argt11.toLocaleLowerCase()
+      var limit = message.content.slice(17)
+      var limito = parseInt(limit)
+      message.guild.createChannel(`${argt22}`, 'voice',).then(channel => {
+      channel.setParent('520741915570864131')
+      channel.setUserLimit(limito)
+      var embedvtv = new Discord.RichEmbed()
+    .setColor("RANDOM")  
+    .setDescription(`Votre channel vocal #${argt11} a bien été implémanté ! <#${channel.id}>`)
+     message.channel.send(embedvtv)
+    })
+}}};
+
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
    }
