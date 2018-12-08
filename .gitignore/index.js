@@ -111,8 +111,7 @@ if (message.content === "~test"){
     .setTitle("Création de channel ")
     .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
     .addField("**~createtchannel : **", "Créer votre channel textuel avec : ``~createtchannel <nom>``")
-    .addField("**~createvchannel : **", "Créer votre channel vocal avec : ``~createvchannel <nom>``")
-    .addField("**~createpvchannel : **", "Créer votre channel vocal privé avec : ``~createtchannel <nombre de place allant jusque 10> <nom>``")
+    .addField("**~createchannel : **", "Créer votre channel vocal privé avec : ``~createtchannel <\"nom\n> <nombre>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
     .setFooter(`Toutes ces commandes sont à utilisées dans le channel <#520950933643853837> !`)
     .setColor("#FF4500")
@@ -387,14 +386,18 @@ if(message.content === "~ping"){
 
   bot.on('message', msg => {
     if (msg.content === "~createchannel"){
-        msg.reply("Bot en cours d'éxecution !");
+        msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\n> <nombre>``");
     }else{
-      if(msg.content.startsWith('~createtchannel')) {
+      if(msg.content.startsWith('~createchannel')) {
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
+          if(msg.content.startsWith('~createchannel')){
           new TempChannel(msg);
         msg.channel.send("Channel créé !");
+        }else{
+          msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\n> <nombre>``")
+        }
       }}
      
   }});
