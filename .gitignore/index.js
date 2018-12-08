@@ -385,15 +385,13 @@ if(message.content === "~ping"){
       }
   }
   
-  bot.on("message", msg => {
-    if(message.content === "~createchannel"){
-      message.reply("A")
-    };
-      
-    if (msg.content.startsWith("~createchannel")) {
+  bot.on('message', msg => {
+    if (message.content === "+start"){
+        message.channel.sendMessage("Bot en cours d'éxecution !");
+    }
+     if (msg.content.startsWith("~createchannel")) {
          new TempChannel(msg);
-          msg.channel.send("Channel créé !");
-      };
-        
+        msg.channel.send("Channel créé !");
+      }
   });
 
