@@ -194,6 +194,7 @@ if(message.content === "~deletechannel"){
       message.guild.createChannel(`${argt22}`, 'voice',).then(channel => {
       channel.setParent('520741915570864131')
       channel.setUserLimit(limito)
+      new TempChannel(msg);
       var embedvtv = new Discord.RichEmbed()
     .setColor("RANDOM")  
     .setDescription(`Votre channel vocal #${argt11} a bien été implémanté ! <#${channel.id}>`)
