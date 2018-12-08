@@ -98,10 +98,11 @@ if (message.content === "~test"){
     var embedz = new Discord.RichEmbed()
     .setTitle("Création de channel ")
     .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
-    .addField("**~createtchannel : **", "Créer votre channel textuel avec ``~createtchannel <nom>``")
-    .addField("**~createvchannel : **", "Créer votre channel vocal avec ``~createvchannel <nom>``")
-    .addField("**~createpvchannel : **", "Créer votre channel vocal privé avec ``~createtchannel <nombre de place allant jusque 10> <nom>``")
-    .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec ``~deletechannel <nom>``")
+    .addField("**~createtchannel : **", "Créer votre channel textuel avec : ``~createtchannel <nom>``")
+    .addField("**~createvchannel : **", "Créer votre channel vocal avec : ``~createvchannel <nom>``")
+    .addField("**~createpvchannel : **", "Créer votre channel vocal privé avec : ``~createtchannel <nombre de place allant jusque 10> <nom>``")
+    .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
+    .setFooter(`Toutes ces commandes sont à utilisées dans le channel <#520950933643853837> !`)
     .setColor("#FF4500")
        message.channel.sendEmbed(embedz)
    }
@@ -187,6 +188,21 @@ if(message.content === "~deletechannel"){
      message.channel.send(embedvtv)
     })
 }}};
+
+if(message.content === "~clear"){
+  message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
+}else{
+  if(message.content.startsWith("~clear")){
+    if(!message.member.hasPermission("KICK_MEMBERS")){
+      message.reply("Vous n'avez pas la permission")
+    }else{
+      message.channel.fetchMessages()
+          .then(messages => {
+            message.channel.bulkDelete(messages);
+            messagesDeleted = messages.array().length;
+    }
+  }
+}
 
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
