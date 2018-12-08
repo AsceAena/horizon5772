@@ -112,10 +112,9 @@ if (message.content === "~test"){
      const channelrc = message.guild.channels.find('name', `${args}`)
         var embed = new Discord.RichEmbed()
         let bicon1 = message.author.displayAvatarURL
-        let GM = message.author.id
         .setThumbnail(bicon1)
         .setColor('#FF4500')
-        .setDescription(`**Voici votre channel !** <@${GM}> `)
+        .setDescription(`**Voici votre channel !**`)
         channelrc.sendEmbed(embed)
     })
 }}};
