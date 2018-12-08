@@ -108,9 +108,11 @@ if (message.content === "~test"){
         .setThumbnail(message.author.displayAvatarURL)
         .setColor("#FF7F50")  
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
-          message.channel.sendEmbed(embedvv);
+          message.channel.sendEmbed(embedvv).then(channelv =>{
           let channelv = member.guild.channels.find('name', `${args}` );
           channelv.send(`Voici votre channel textuel !`)
+          })
+          
         })
           }}};
 
