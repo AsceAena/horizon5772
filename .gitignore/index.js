@@ -109,8 +109,8 @@ if (message.content === "~test"){
         .setColor("RANDOM")  
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
          message.channel.send(embedvv).then(embedMessage => {
-            embedMessage.react("👍")
-            const channelcr = member.guild.channels.find('name', `${args}`)
+          embedMessage.react("👍")
+            let channelcr = member.guild.channels.find('name', `${args}`)
             var embedxx = new Discord.RichEmbed()
             .setColor('#FF4500')
             .setDescription('Voici votre channel !')
