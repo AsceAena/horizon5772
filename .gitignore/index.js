@@ -98,15 +98,15 @@ if (message.content === "~test"){
     }else{
     if(message.content.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
-      const args = message.content.slice(15)
+        message.reply("Pas la permission")
+      }else{
+        const args = message.content.slice(15)
       message.guild.createChannel(`${args}`)
       var embedv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
       .setDescription(`Le channel ${args} a bien été implémanté !`)
         message.channel.send({embedv});
-      }else{
-        message.reply("Pas la permission")
       }}};
 
     
