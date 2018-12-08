@@ -108,16 +108,14 @@ if (message.content === "~test"){
         .setThumbnail(message.author.displayAvatarURL)
         .setColor("RANDOM")  
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
-         message.channel.send(embedvv).then(embedMessage => {
-          embedMessage.react("👍")
-            let channelcr = member.guild.channels.find('name', `${args}`)
+         message.channel.send(embedvv)
+          let channelcr = member.guild.channels.find('name', `${args}`)
             var embed = new Discord.RichEmbed()
             .setColor('#FF4500')
             .setDescription('Voici votre channel !')
             .setImage(member.avatarURL)
             return channelcr.send(embed)
         })
-      })
   }}};
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
