@@ -128,8 +128,12 @@ if(message.content === "~deletechannel"){
       const argss = message.content.slice(15)
       const argss2 = argss.toLocaleLowerCase()
       const channelrss = message.guild.channels.find('name', `${argss2}`)
+      const channelip = message.guild.channels.find('name', `invocation`)
        channelrss.delete(`${argss2}`, 'text',).then(message => {
-         message.reply(`Le channel ${argss2} a bien été supprimé !`)
+         var embedss = new Discord.RichEmbed()
+         .setColor('#FF4500')
+         .setDescription(`Le channel ${argss2} a bien été supprimé !`)
+         channelip.sendEmbed(embedss)
       })
     }}};
 
