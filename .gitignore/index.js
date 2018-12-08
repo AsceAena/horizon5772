@@ -170,14 +170,14 @@ if(message.content === "~deletechannel"){
       }else{
         let mute_role = message.guild.roles.find("name", "Mute");
       let memberd = message.mentions.members.first();
-      memberd.addRole(mute_role).then(embedMessage =>{
-         var embedd = new Discord.RichEmbed()
+      memberd.addRole(mute_role)
+         var embedad = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setTitle(`${MUTE}`)
+        .setTitle(`MUTE`)
         .setDescription(memberd `a été muté.. Bravo à lui !`)
-        message.channel.sendEmbed(embedd)
+        message.channel.sendEmbed(embedad)
         setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
-      })}
+      }
     };
 
       
