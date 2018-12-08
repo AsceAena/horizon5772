@@ -200,7 +200,7 @@ if(message.content === "~clear"){
       var limitao = parseInt(limita)
       message.channel.fetchMessages()
           .then(messages => {
-            message.channel.bulkDelete(limitao);
+            message.channel.bulkDelete(limitao + 1);
             messagesDeleted = messages.array().length
           })
       }}};
