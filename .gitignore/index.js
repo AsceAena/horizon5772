@@ -111,7 +111,7 @@ if (message.content === "~test"){
     .setTitle("Création de channel ")
     .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
     .addField("**~createtchannel : **", "Créer votre channel textuel avec : ``~createtchannel <nom>``")
-    .addField("**~createchannel : **", "Créer votre channel vocal privé avec : ``~createtchannel <\"nom\n> <nombre>``")
+    .addField("**~createchannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\n> <nombre>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
     .setFooter(`Toutes ces commandes sont à utilisées dans le channel <#520950933643853837> !`)
     .setColor("#FF4500")
@@ -385,7 +385,7 @@ if(message.content === "~ping"){
   }
 
   bot.on('message', msg => {
-    if (msg.content === "~createchannel"){
+    if (msg.content === "~tempochannel"){
         msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\"> <nombre>``");
     }else{
       if(msg.content.startsWith('~createchannel')) {
