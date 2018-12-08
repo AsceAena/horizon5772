@@ -125,18 +125,18 @@ if (message.content === "~test"){
      if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas la permission.")
      }else{
-      const args = message.content.slice(16)
-      const args2 = args.toLocaleLowerCase()
-      message.guild.createChannel(`${args2}`, 'text',).then(channel => {
+      const argsws = message.content.slice(16)
+      const args2t = argsws.toLocaleLowerCase()
+      message.guild.createChannel(`${args2t}`, 'text',).then(channel => {
       channel.setParent('520741915570864131')
       var embedvv = new Discord.RichEmbed()
     .setColor("RANDOM")  
-    .setDescription(`Votre channel textuel #${args} a bien été implémanté ! <#${channel.id}>`)
+    .setDescription(`Votre channel textuel <#${channel.id}> a bien été créé ! `)
      message.channel.send(embedvv)
-     const channelrc = message.guild.channels.find('name', `${args2}`)
+     const channelrc = message.guild.channels.find('name', `${args2t}`)
         var embedd = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setTitle(`${args}`)
+        .setTitle(`${argsws}`)
         .setDescription(`**Voici votre channel ! <@${message.author.id}>**`)
         channelrc.sendEmbed(embedd)
     })
@@ -156,7 +156,7 @@ if(message.content === "~deletechannel"){
        channelrss.delete(`${argss2}`, 'text',).then(message => {
          var embedss = new Discord.RichEmbed()
          .setColor('#FF4500')
-         .setDescription(`Le channel #${argss2} a bien été supprimé !`)
+         .setDescription(`Le channel #${argss} a bien été supprimé !`)
          channelip.sendEmbed(embedss)
       })
     }}};
