@@ -63,7 +63,7 @@ if (message.content === "~test"){
         var embed = new Discord.RichEmbed()
       .setTitle("Commande de modération")
       .addField("~clear <nombre>", "Effacer un nombre de message voulu")
-      .addField("~mute ")
+      .addField("~mute <minutes> <mention>", "Muté un membre du serveur")
       .setFooter("La Friterie")
       .setColor("#FF4500")
            message.channel.sendEmbed(embed)
