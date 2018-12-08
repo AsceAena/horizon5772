@@ -108,7 +108,7 @@ if (message.content === "~test"){
       var embedvv = new Discord.RichEmbed()
     .setThumbnail(message.author.displayAvatarURL)
     .setColor("RANDOM")  
-    .setDescription(`Votre channel textuel ${args} a bien été implémanté ! <#${channelrc.id}>`)
+    .setDescription(`Votre channel textuel ${args} a bien été implémanté ! <#${channel.id}>`)
      message.channel.send(embedvv)
      const channelrc = message.guild.channels.find('name', `${args2}`)
         var embedd = new Discord.RichEmbed()
