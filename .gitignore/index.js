@@ -118,6 +118,26 @@ if (message.content === "~test"){
     })
 }}};
 
+if(message.content === "~deletechannel"){
+  message.reply("Merci de mentionner un channel avec la commande ``~deletechannel`` !")
+}else{
+  if(message.content.startsWith("~deletechannel")){
+    if(!message.member.hasPermission("MANAGE_CHANNELS")){
+      message.reply("Vous n'avez pas pas la permission.")
+    }else{
+      const argss = message.content.slice(15)
+      const argss2 = argss.toLocaleLowerCase()
+      message.guild.channel.delete(`${argss2}`, 'text',).then(embedMessage => {
+        var embedss = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Le channel textuel ${argss} a bien été supprimé !`)
+        message.channel.sendEmbed(embedss)
+      })
+    }
+  }
+  
+};
+
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
    }
