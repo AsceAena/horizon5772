@@ -63,6 +63,7 @@ if (message.content === "~test"){
         var embed = new Discord.RichEmbed()
       .setTitle("Commande de modération")
       .addField("~clear <nombre>", "Effacer un nombre de message voulu")
+      .addField("~mute ")
       .setFooter("La Friterie")
       .setColor("#FF4500")
            message.channel.sendEmbed(embed)
@@ -417,8 +418,9 @@ if(message.content === "~ping"){
       }else{
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
+      var argt11 = message.content.slice(6)
       memberd.addRole(mute_role)
-      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000 * argt11)
         var embedsys = new Discord.RichEmbed()
         .setColor('#FF4500')
         .setDescription(`Mute effectué avec succés !`)
