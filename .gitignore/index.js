@@ -53,10 +53,22 @@ if (message.content === "~test"){
      .addField("**~say :**", "Faites dire ce que vous souhaitez au bot !.")
      .addField("**~sondage :**", "Faites voter vos idées !.")
      .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
+     .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
      .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
      .setColor("#FF4500")
         message.channel.sendEmbed(embed)
       }
+
+      if(message.content === "~modocmd") { 
+        var embed = new Discord.RichEmbed()
+      .setTitle("Commande de modération")
+      .addField("~clear <nombre>", "Effacer un nombre de message voulu")
+      .setFooter("La Friterie")
+      .setColor("#FF4500")
+           message.channel.sendEmbed(embed)
+       }
+
+
 
   if(message.content === "~infodiscord") { 
       let bicon = message.author.displayAvatarURL;
@@ -205,8 +217,7 @@ if(message.content === "~clear"){
           })
       }}};
         
-
-   if(message.content === "~ping"){
+if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
    }
 
