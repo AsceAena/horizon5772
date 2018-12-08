@@ -94,6 +94,18 @@ if (message.content === "~test"){
        message.channel.sendEmbed(embed1)
    }
 
+   if(message.content === "~createchannel"){
+    var embedz = new Discord.RichEmbed()
+    .setTitle("Création de channel ")
+    .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
+    .addField("**~createtchannel : **", "Créer votre channel textuel avec ``~createtchannel <nom>``")
+    .addField("**~createvchannel : **", "Créer votre channel vocal avec ``~createvchannel <nom>``")
+    .addField("**~createpvchannel : **", "Créer votre channel vocal privé avec ``~createtchannel <nombre de place allant jusque 10> <nom>``")
+    .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec ``~deletechannel <nom>``")
+    .setColor("#8800fc")
+       message.channel.sendEmbed(embed1)
+   }
+
    if(message.content === "~createtchannel"){
     message.reply("Merci de mentionner un nom de channel avec la commande  ``~createtchannel <Nom>`` !")
   }else{
@@ -136,7 +148,7 @@ if(message.content === "~deletechannel"){
          channelip.sendEmbed(embedss)
       })
     }}};
-
+    
     if(message.content === "~createvchannel"){
       message.reply("Merci de mentionner un nom de channel avec la commande  ``~createvchannel <Nom>`` !")
     }else{
@@ -334,4 +346,3 @@ if(message.content === "~deletechannel"){
      
 
     });
-
