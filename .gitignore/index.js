@@ -196,9 +196,11 @@ if(message.content === "~clear"){
     if(!message.member.hasPermission("KICK_MEMBERS")){
       message.reply("Vous n'avez pas la permission")
     }else{
+      var limita = message.content.slice(7)
+      var limitao = parseInt(limita)
       message.channel.fetchMessages()
           .then(messages => {
-            message.channel.bulkDelete(messages);
+            message.channel.bulkDelete(limitao);
             messagesDeleted = messages.array().length
           })
       }}};
