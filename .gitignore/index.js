@@ -95,19 +95,19 @@ if (message.content === "~test"){
     }
 
     if(message.content === "~createchannel"){
-      message.reply("Merci de mentionner un nom de channel avec la commande  ```~createchannel <Nom>``` !")
+      message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
     }else{
     if(message.content.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.reply("Vous n'avez pas la permission.")
       }else{
-        const args = message.content.slice(15)
+      const args = message.content.slice(15)
       message.guild.createChannel(`${args}`)
-      var embedv = new Discord.RichEmbed()
+      var embedvv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
       .setDescription(`Votre channel a bien été implémanté !`)
-        message.channel.send({embedv});
+        message.channel.sendEmbed(embedvv);
       }}};
 
     
