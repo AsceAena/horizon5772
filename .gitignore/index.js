@@ -408,9 +408,9 @@ if(message.content === "~ping"){
   });
 
   bot.on('message', msg => {
-    if(msg.content === "~mute"){
-      msg.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``")
-    }
+    if (msg.content === "~mute"){
+      msg.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``");
+    }else{
     if(msg.content.startsWith("~mute")){
       if(!msg.member.hasPermission("KICK_MEMBERS")){
         msg.reply("Vous n'avez pas la permission de mute !")
@@ -423,6 +423,6 @@ if(message.content === "~ping"){
         .setColor('#FF4500')
         .setDescription(`Mute effectué avec succés !`)
         msg.channel.sendEmbed(embedss)
-        })}}
+        })}}}
 });
 
