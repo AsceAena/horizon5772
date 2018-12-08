@@ -113,7 +113,7 @@ if (message.content === "~test"){
      const channelrc = message.guild.channels.find('name', `${args2}`)
         var embedd = new Discord.RichEmbed()
         .setColor('#FF4500')
-        .setDescription(`**Voici votre channel !**`)
+        .setDescription(`**Voici votre channel ! <@${message.author.id}>**`)
         channelrc.sendEmbed(embedd)
     })
 }}};
