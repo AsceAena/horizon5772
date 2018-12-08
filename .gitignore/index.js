@@ -176,7 +176,7 @@ if(message.content === "~clear"){
             messagesDeleted = messages.array().length
             var embedw = new Discord.RichEmbed()
          .setColor('#FF4500')
-         .setDescription(`Messages supprimés avec succés. Total  des messages supprimés :` + limitao)
+         .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
          message.channel.sendEmbed(embedw)
           })
       }}};
@@ -400,7 +400,7 @@ if(message.content === "~ping"){
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
-             message.channel.sendEmbed(embed1).catch(err => console.log(err));
+             message.channel.sendEmbed(embed1)
         }}}
      
   });
