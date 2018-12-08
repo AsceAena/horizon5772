@@ -109,8 +109,8 @@ if (message.content === "~test"){
         .setColor("#FF7F50")  
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
           message.channel.sendEmbed(embedvv);
-          const channelv = member.guild.channels.find('name', `${args}` );
-          channelv.send(`Voici votre channel textuel <@${message.author.user.id}> !`)
+          let channelv = member.guild.channels.find('name', `${args}` );
+          channelv.send(`Voici votre channel textuel !`)
         })
           }}};
 
