@@ -94,7 +94,7 @@ if (message.content === "~test"){
     }
 
     if(message.content === "~createchannel"){
-      message.reply("Merci de mentionner un nom de channel !");
+      message.reply("Merci de mentionner un nom de channel !")
     }else{
     if(message.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
@@ -107,7 +107,7 @@ if (message.content === "~test"){
       .setThumbnail(bicon1)
       .setColor("#FF7F50")  
       .setDescription(`Le channel ${args} a bien été implémanté !`)
-        message.channel.send({embedv});
+        message.channel.send({embedv})
       }}};
 
     
