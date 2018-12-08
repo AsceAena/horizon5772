@@ -386,12 +386,9 @@ if(message.content === "~ping"){
   }
   
   bot.on("message", msg => {
-      if (msg.content.startsWith("~createchannel")){
-        if(!message.member.hasPermission("MANAGE_CHANNELS")){
-          message.reply("Vous n'avez pas la permission.")
-      }else{
+      if (msg.content.startsWith("~createchannel")) {
           new TempChannel(msg);
           msg.channel.send("Channel créé !");
-          }
-  }});
+      }
+  });
 
