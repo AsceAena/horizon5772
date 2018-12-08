@@ -111,9 +111,9 @@ if (message.content === "~test"){
     .setTitle("Création de channel ")
     .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
     .addField("**~createtchannel : **", "Créer votre channel textuel avec : ``~createtchannel <nom>``")
-    .addField("**~createchannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\n> <nombre>``")
+    .addField("**~tempochannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\n> <nombre>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
-    .setFooter(`Toutes ces commandes sont à utilisées dans le channel <#520950933643853837> !`)
+    .setFooter(`Toutes ces commandes sont à utiliser dans le channel invocation !`)
     .setColor("#FF4500")
        message.channel.sendEmbed(embedz)
    }
@@ -174,6 +174,10 @@ if(message.content === "~clear"){
           .then(messages => {
             message.channel.bulkDelete(limitao + 1);
             messagesDeleted = messages.array().length
+            var embedw = new Discord.RichEmbed()
+         .setColor('#FF4500')
+         .setDescription(`Messages supprimés avec succés. Total  des messages supprimés : "+messagesDeleted`)
+         message.channel.sendEmbed(embedw)
           })
       }}};
         
@@ -394,7 +398,10 @@ if(message.content === "~ping"){
         }else{
           if(msg.content.startsWith('~tempochannel')){
           new TempChannel(msg);
-        msg.channel.send("Channel créé !");
+          var embed1 = new Discord.RichEmbed()
+          .setDescription("***Channel créé avec succés !***")
+          .setColor("#8800fc")
+             message.channel.sendEmbed(embed1)
         }else{
           msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``")
         }
