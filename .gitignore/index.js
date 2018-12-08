@@ -94,22 +94,37 @@ if (message.content === "~test"){
        message.channel.sendEmbed(embed1)
     }
 
-    if(message.content === "~createchannel"){
+    if(message.content === "~createvchannel"){
       message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
     }else{
-    if(message.content.startsWith('~createchannel')) {
+    if(message.content.startsWith('~createvchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.reply("Vous n'avez pas la permission.")
       }else{
-      const args = message.content.slice(15)
-      const arg2 = message.content.slice(20)
-      message.guild.createChannel(`${arg2}`, args) 
+      const args = message.content.slice(16)
+      message.guild.createChannel(`${args}`, 'voice') 
       var embedvv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
-      .setDescription(`Votre channel a bien été implémanté !`)
+      .setDescription(`Votre channel vocal a bien été implémanté !`)
         message.channel.sendEmbed(embedvv);
       }}};
+
+      if(message.content === "~createtchannel"){
+        message.reply("Merci de mentionner un nom de channel avec la commande  ``~createchannel <Nom>`` !")
+      }else{
+      if(message.content.startsWith('~createtchannel')) {
+        if(!message.member.hasPermission("MANAGE_CHANNELS")){
+          message.reply("Vous n'avez pas la permission.")
+        }else{
+        const args = message.content.slice(16)
+        message.guild.createChannel(`${args}`, 'text') 
+        var embedvv = new Discord.RichEmbed()
+        .setThumbnail(message.author.displayAvatarURL)
+        .setColor("#FF7F50")  
+        .setDescription(`Votre channel textuel a bien été implémanté !`)
+          message.channel.sendEmbed(embedvv);
+        }}};
 
     
 
