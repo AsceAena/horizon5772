@@ -199,10 +199,10 @@ if(message.content === "~clear"){
       message.channel.fetchMessages()
           .then(messages => {
             message.channel.bulkDelete(messages);
-            messagesDeleted = messages.array().length;
-    }
-  }
-}
+            messagesDeleted = messages.array().length
+          })
+      }}};
+        
 
    if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
