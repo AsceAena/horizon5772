@@ -111,11 +111,11 @@ if (message.content === "~test"){
          message.channel.send(embedvv).then(embedMessage => {
           embedMessage.react("👍")
             let channelcr = member.guild.channels.find('name', `${args}`)
-            var embedxx = new Discord.RichEmbed()
+            var embed = new Discord.RichEmbed()
             .setColor('#FF4500')
             .setDescription('Voici votre channel !')
             .setImage(member.avatarURL)
-            return channelcr.send({embedxx})
+            return channelcr.send(embed)
         })
       })
   }}};
