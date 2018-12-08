@@ -418,11 +418,11 @@ if(message.content === "~ping"){
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
       memberd.addRole(mute_role)
-      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000).then(msg => {
-        var embedss = new Discord.RichEmbed()
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
+        var embedsys = new Discord.RichEmbed()
         .setColor('#FF4500')
         .setDescription(`Mute effectué avec succés !`)
-        msg.channel.sendEmbed(embedss)
-        })}}}
+        msg.channel.sendEmbed(embedsys)
+        }}}
 });
 
