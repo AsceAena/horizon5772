@@ -144,13 +144,10 @@ if(message.content === "~deletechannel"){
        if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.reply("Vous n'avez pas la permission.")
        }else{
-         var limit = message.content.slice(16)
-         var limito = parseInt(limit)
-        var argt = message.content.slice(19)
-        var argt2 = args.toLocaleLowerCase()
+        var argt = message.content.slice(16)
+        var argt2 = argt.toLocaleLowerCase()
         message.guild.createChannel(`${argt2}`, 'voice',).then(channel => {
         channel.setParent('520741915570864131')
-        channel.setUserLimit(limito)
         var embedvtv = new Discord.RichEmbed()
       .setColor("RANDOM")  
       .setDescription(`Votre channel vocal #${argt} a bien été implémanté ! <#${channel.id}>`)
