@@ -103,7 +103,7 @@ if (message.content === "~test"){
       }else{
       const args = message.content.slice(15)
       message.guild.createChannel(`${args}`)
-      .then(channel => channel.setParent(guildChannels.get(channel.parentID)))
+      .then(tc => tc.setParent(guildChannels.get(Textchannel.parentID)))
       var embedvv = new Discord.RichEmbed()
       .setThumbnail(message.author.displayAvatarURL)
       .setColor("#FF7F50")  
