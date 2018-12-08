@@ -386,17 +386,17 @@ if(message.content === "~ping"){
 
   bot.on('message', msg => {
     if (msg.content === "~tempochannel"){
-        msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\"> <nombre>``");
+        msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``");
     }else{
-      if(msg.content.startsWith('~createchannel')) {
+      if(msg.content.startsWith('~tempochannel')) {
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          if(msg.content.startsWith('~createchannel')){
+          if(msg.content.startsWith('~tempochannel')){
           new TempChannel(msg);
         msg.channel.send("Channel créé !");
         }else{
-          msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\"> <nombre>``")
+          msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``")
         }
       }}
      
