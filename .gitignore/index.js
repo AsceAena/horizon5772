@@ -160,29 +160,7 @@ if(message.content === "~deletechannel"){
          channelip.sendEmbed(embedss)
       })
     }}};
-
-    if(message.content === "~mute"){
-      message.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``")
-    }
-    if(message.content.startsWith("~mute")){
-      if(!message.member.hasPermission("KICK_MEMBERS")){
-        message.reply("Vous n'avez pas la permission de mute !")
-      }else{
-        let mute_role = message.guild.roles.find("name", "Mute");
-      let memberd = message.mentions.members.first();
-      memberd.addRole(mute_role).then(message => {
-        var embedad = new Discord.RichEmbed()
-        .setColor('#FF4500')
-        .setTitle(`MUTE`)
-        .setDescription(`Mute effectué..Bravo !`)
-        message.channel.sendEmbed(embedad)
-        setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
-      })
-         
-      }
-    };
-
-      
+   
     
 
 if(message.content === "~clear"){
@@ -428,4 +406,23 @@ if(message.content === "~ping"){
         }}}
      
   });
+
+  bot.on('message', msg => {
+    if(msg.content === "~mute"){
+      msg.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``")
+    }
+    if(msg.content.startsWith("~mute")){
+      if(!msg.member.hasPermission("KICK_MEMBERS")){
+        msg.reply("Vous n'avez pas la permission de mute !")
+      }else{
+        let mute_role = msg.guild.roles.find("name", "Mute");
+      let memberd = msg.mentions.members.first();
+      memberd.addRole(mute_role)
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000).then(msg => {
+        var embedss = new Discord.RichEmbed()
+        .setColor('#FF4500')
+        .setDescription(`Mute effectué avec succés !`)
+        msg.channel.sendEmbed(embedss)
+        })}}
+});
 
