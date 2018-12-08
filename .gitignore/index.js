@@ -229,8 +229,6 @@ if(message.content === "~deletechannel"){
     }
 }
 
-Client.on("message", msg => {
-    // name, nb
     if(message.content === "~createpvchannel"){
         message.reply("Merci de mentionner le nom du channel privé avec la commande  ``~createpvchannel <Nom>`` !")
       }else{
@@ -240,8 +238,8 @@ Client.on("message", msg => {
          }else{
         new TempChannel(msg);
         msg.channel.send("Channel créé !");
-    }}}
-})
+    }}};
+
 if(message.content === "~clear"){
   message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
 }else{
