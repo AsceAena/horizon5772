@@ -109,12 +109,17 @@ if (message.content === "~test"){
     .setColor("RANDOM")  
     .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
      message.channel.send(embedvv)
+     var channelrc = message.author.guild.channels.find('name', `${args}`)
         var embed = new Discord.RichEmbed()
         .setColor('#FF4500')
         .setDescription('Voici votre channel !')
-        message.member.guild.channels.find('name', `${args}`).sendEmbed(embed)
+        channelrc.sendEmbed(embed)
     })
 }}};
+
+   if(message.content === "~ping"){
+     message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
+   }
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
