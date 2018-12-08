@@ -180,6 +180,44 @@ if(message.content === "~deletechannel"){
       })
   }}};
 
+  class TempChannel {
+    constructor(msg) {
+        this.msg = msg;
+        this.guild = msg.guild;
+        this.channel;
+        this.name;
+        this.max;
+        this.getArgs();
+        this.create();
+        this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 2);
+    }
+     getArgs() {
+        this.name = this.msg.content.split('"')[1];
+        this.max = Number(this.msg.content.split('"')[2].split(" ")[1]);
+    }
+    create() {
+        this.guild.createChannel(this.name, "voice")
+            .then(chan => {
+                this.get(chan);
+            })
+            .catch(console.error);}
+
+    get(chan) {
+        this.channel = chan;
+        this.channel.setParent("520741915570864131")
+            .catch(console.catch);
+        this.channel.edit({
+            userLimit: this.max
+        })}
+    autodelete() {
+        if (this.channel.members.array().length == 0) {
+            this.delete();
+            clearInterval(this.interval);
+        }}
+    delete() {
+        this.channel.delete();
+    }}
+
   if(message.content === "~createpvchannel"){
     message.reply("Merci de mentionner le nom du channel privé avec la commande  ``~createpvchannel <Nom>`` !")
   }else{
@@ -187,47 +225,9 @@ if(message.content === "~deletechannel"){
      if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas la permission.")
      }else{
-      class TempChannel {
-        constructor(msg) {
-            this.msg = msg;
-            this.guild = msg.guild;
-            this.channel;
-            this.name;
-            this.max;
-            this.getArgs();
-            this.create();
-            this.interval = setInterval(() => {this.autodelete()}, 1000 * 60 * 5);
-        }
-         getArgs() {
-            this.name = this.msg.content.split('"')[1];
-            this.max = Number(this.msg.content.split('"')[2].split(" ")[1]);
-        }
-        create() {
-            this.guild.createChannel(this.name, "voice")
-                .then(chan => {
-                    this.get(chan);
-                })
-                .catch(console.error);}
-    
-        get(chan) {
-            this.channel = chan;
-            this.channel.setParent("520741915570864131")
-                .catch(console.catch);
-            this.channel.edit({
-                userLimit: this.max
-            })}
-        autodelete() {
-            if (this.channel.members.array().length == 0) {
-                this.delete();
-                clearInterval(this.interval);
-            }}
-        delete() {
-            this.channel.delete();
-        }}
         new TempChannel(msg);
-        msg.channel.send("Channel créé !");
-   
-}}};
+        msg.channel.send("Channel créé !")
+   }}};
 
 if(message.content === "~clear"){
   message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
