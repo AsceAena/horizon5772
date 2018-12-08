@@ -161,24 +161,6 @@ if(message.content === "~deletechannel"){
          channelip.sendEmbed(embedss)
       })
     }}};
-    
-    if(message.content === "~createvchannel"){
-      message.reply("Merci de mentionner un nom de channel avec la commande  ``~createvchannel <Nom>`` !")
-    }else{
-     if(message.content.startsWith('~createvchannel')) {
-       if(!message.member.hasPermission("MANAGE_CHANNELS")){
-        message.reply("Vous n'avez pas la permission.")
-       }else{
-        var argt = message.content.slice(16)
-        var argt2 = argt.toLocaleLowerCase()
-        message.guild.createChannel(`${argt2}`, 'voice',).then(channel => {
-        channel.setParent('520741915570864131')
-        var embedvtv = new Discord.RichEmbed()
-      .setColor("RANDOM")  
-      .setDescription(`Votre channel vocal #${argt} a bien été implémanté ! <#${channel.id}>`)
-       message.channel.send(embedvtv)
-      })
-  }}};
 
 if(message.content === "~clear"){
   message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
@@ -405,8 +387,20 @@ if(message.content === "~ping"){
   }
 
     bot.on('message', msg => {
-      if (msg.content.startsWith("~cc")) {
+      if(message.content === "~createchannel"){
+      message.reply("Merci de préciser un nom ainsi que la limite de personne avec la commande ``~createchannel <\"nom\"> <taille limite>``")
+    }else{
+      if(message.content.startsWith('~createchannel')) {
+        if(!message.member.hasPermission("MANAGE_CHANNELS")){
+         message.reply("Vous n'avez pas la permission.")
+        }else{
+      if (msg.content.startsWith("~createchannel")) {
         new TempChannel(msg);
         msg.channel.send("Channel créé !");
+    }else{
+      message.reply("Merci de suivre la fomre ``~createchannel <\"nom\"> <taille limite>``")
     }
-    });
+  }
+ }}});
+
+  
