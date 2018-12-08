@@ -106,15 +106,15 @@ if (message.content === "~test"){
           channel.setParent('520741915570864131')
           var embedvv = new Discord.RichEmbed()
         .setThumbnail(message.author.displayAvatarURL)
-        .setColor("#FF7F50")  
+        .setColor("RANDOM")  
         .setDescription(`Votre channel textuel ${args} a bien été implémanté !`)
-          message.channel.sendEmbed(embedvv).then(channelv =>{
-          let channelv = member.guild.channels.find('name', `${args}` );
-          channelv.send(`Voici votre channel textuel !`)
-          })
-          
+         message.channel.send(embedvv).then(embedMessage => {
+            embedMessage.react("👍")
+            let channelv = member.guild.channels.find('name', `${args}`);
+          channelv.send(`Voici votre channel textuel !`);
         })
-          }}};
+      })
+  }}};
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
