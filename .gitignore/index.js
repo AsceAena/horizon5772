@@ -96,7 +96,7 @@ if (message.content === "~test"){
     if(message.content === "~createchannel"){
       message.reply("Merci de mentionner un nom de channel !")
     }else{
-    if(message.startsWith('~createchannel')) {
+    if(message.content.startsWith('~createchannel')) {
       if(!message.member.hasPermission("MANAGE_CHANNELS")){
         message.reply("Vous n'avez pas la permission !")
       }else{
