@@ -386,7 +386,7 @@ if(message.content === "~ping"){
 
   bot.on('message', msg => {
     if (msg.content === "~createchannel"){
-        msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\n> <nombre>``");
+        msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\"> <nombre>``");
     }else{
       if(msg.content.startsWith('~createchannel')) {
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
@@ -396,7 +396,7 @@ if(message.content === "~ping"){
           new TempChannel(msg);
         msg.channel.send("Channel créé !");
         }else{
-          msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\n> <nombre>``")
+          msg.reply("Merci d'utiliser correctement la commande avec ``~createtchannel <\"nom\"> <nombre>``")
         }
       }}
      
