@@ -152,7 +152,9 @@ if(message.content === "~deletechannel"){
     if(!message.member.hasPermission("MANAGE_CHANNELS")){
       message.reply("Vous n'avez pas pas la permission.")
     }else{
-      if(message.content.startsWith("~deletechannel")){
+      if(!channelrss){
+        message.reply("Channel introuvable")
+      }else{}
       var argss = message.content.slice(15)
       var argss2 = argss.toLocaleLowerCase()
       var channelrss = message.guild.channels.find('name', `${argss2}`)
@@ -162,10 +164,7 @@ if(message.content === "~deletechannel"){
          .setColor('#FF4500')
          .setDescription(`Le channel #${argss} a bien été supprimé !`)
          channelip.sendEmbed(embedss)
-       })
-      }else{ 
-        message.reply("Channel pas trouvé !")
-      }
+      })
     }}};
    
     
