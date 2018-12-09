@@ -63,7 +63,9 @@ if (message.content === "~test"){
         var embed = new Discord.RichEmbed()
       .setTitle("Commande de modération")
       .addField("~clear <nombre>", "Effacer un nombre de message voulu")
-      .addField("~mute <minutes> <mention>", "Muté un membre du serveur")
+      .addField("~mute <mention>", "Muter un membre du serveur")
+      .addField("~kick <mention>", "Kick un membre du serveur")
+      .addField("~ban <mention>", "Ban un membre du serveur")
       .setFooter("La Friterie")
       .setColor("#FF4500")
            message.channel.sendEmbed(embed)
@@ -421,8 +423,6 @@ if(message.content === "~ping"){
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
         var embedsys = new Discord.RichEmbed()
-        let bicon = message.author.displayAvatarURL
-        .setThumbnail(bicon)
         .setTitle("MUTE effectué avec succés !")
         .setColor('#FF4500')
         .setTitle(`Mute de 10 minutes effectué avec succés !`)
@@ -446,8 +446,6 @@ bot.on('message', msg => {
      memberd.ban("GG")
      const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
-      let bicon = message.author.displayAvatarURL
-      .setThumbnail(bicon)
       .setTitle("BAN effectué avec succés !")
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait ban par ${msg.author} ! Ce n'est qu'un au revoir !!`)
@@ -470,8 +468,6 @@ bot.on('message', msg => {
      memberd.kick("GG")
      const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
-      let bicon = message.author.displayAvatarURL
-      .setThumbnail(bicon)
       .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
