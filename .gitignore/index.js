@@ -404,7 +404,7 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          if(!name.exists){
+          if(!name.exists(msg.content.split('"')[1])){
             message.reply("Rekt")
           }else{
           new TempChannel(msg);
