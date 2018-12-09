@@ -353,7 +353,7 @@ if(message.content === "~ping"){
           this.msg = msg;
           this.guild = msg.guild;
           this.channel;
-          this.name;
+          this.namer;
           this.max;
   
           this.getArgs();
@@ -362,12 +362,12 @@ if(message.content === "~ping"){
       }
   
       getArgs() {
-          this.name = this.msg.content.split('"')[1];
+          this.namer = this.msg.content.split('"')[1];
           this.max = Number(this.msg.content.split('"')[2].split(" ")[1]);
       }
   
       create() {
-          this.guild.createChannel(this.name, "voice")
+          this.guild.createChannel(this.namer, "voice")
               .then(chan => {
                   this.get(chan);
               })
@@ -404,7 +404,7 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          if(!name.exists(msg.content.split('"')[1])){
+          if(!exists(msg.content.split('"')[1])){
             message.reply("Rekt")
           }else{
           new TempChannel(msg);
