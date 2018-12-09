@@ -429,15 +429,16 @@ if(message.content === "~ping"){
 
 bot.on('message', message => {
   if (message.content.startsWith("~ban")){
-    if(!message.member.roles.some(r=>["Fondateurs"].includes(r.name)) )
+    if(!message.member.hasPermission("BAN_MEMBERS")){
       return message.reply("Je n'ai pas la permission de faire cela.");
-    
+    }
     let member = message.mentions.members.first();
-    if(!member)
+    if(!member){
       return message.reply("Merci de mentionner un utilisateur valide");
-    if(!member.bannable) 
+    }
+    if(!member.bannable){
       return message.reply("Je ne bannis aucun de mes supérieurs.");
-
+    }
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "Aucune raison spécifiée";
     
