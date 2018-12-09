@@ -406,7 +406,7 @@ if(message.content === "~ping"){
         }else{
           var namerr = msg.content.split('"')[1];
           var maxx = msg.content.split('"')[2].split(" ")[1];
-          if(msg.content !== "~tempochannel " + namerr + maxx){
+          if(msg.content[0] !== "~tempochannel " + namerr + maxx){
             msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
             }else{
               new TempChannel(msg);
