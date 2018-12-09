@@ -427,22 +427,22 @@ if(message.content === "~ping"){
         }}}
 });
 
-bot.on('message', msg => {
-  if (msg.content.startsWith("~ban")){
-    if(!msg.member.roles.some(r=>["Fondateurs"].includes(r.name)) )
-      return msg.reply("Je n'ai pas la permission de faire cela.");
+bot.on('message', message => {
+  if (message.content.startsWith("~ban")){
+    if(!message.member.roles.some(r=>["Fondateurs"].includes(r.name)) )
+      return message.reply("Je n'ai pas la permission de faire cela.");
     
-    let member = msg.mentions.members.first();
+    let member = message.mentions.members.first();
     if(!member)
-      return msg.reply("Merci de mentionner un utilisateur valide");
+      return message.reply("Merci de mentionner un utilisateur valide");
     if(!member.bannable) 
-      return msg.reply("Je ne bannis aucun de mes supérieurs.");
+      return message.reply("Je ne bannis aucun de mes supérieurs.");
 
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "Aucune raison spécifiée";
     
     await member.ban(reason)
-      .catch(error => msg.reply(`Désolé ${msg.author} Je ne peux pas ban parce que : ${error}`));
-    msg.reply(`${member.user.tag} has been banned by ${msg.author.tag} because: ${reason}`);
+      .catch(error => message.reply(`Désolé ${message.author} Je ne peux pas ban parce que : ${error}`));
+    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
   });
