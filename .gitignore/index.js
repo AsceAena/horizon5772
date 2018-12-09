@@ -404,7 +404,9 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          if(msg.content.slice.length === 2){
+          var namer = this.msg.content.split('"')[1];
+          var max = Number(this.msg.content.split('"')[2].split(" ")[1]);
+          if(msg.content.slice("~tempochannel ", namer, max)){
             new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
