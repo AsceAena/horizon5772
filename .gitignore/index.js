@@ -423,9 +423,8 @@ if(message.content === "~ping"){
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
         var embedsys = new Discord.RichEmbed()
-        .setTitle("MUTE effectué avec succés !")
         .setColor('#FF4500')
-        .setTitle(`Mute de 10 minutes effectué avec succés !`)
+        .setTitle(`Mute de 20 minutes effectué avec succés !`)
         .setDescription(`${memberd} s'est fait mute par ${msg.author} le temps de 20 minutes..`)
         .setImage("https://static1.terrafemina.com/articles/4/34/35/44/@/506712-faire-rechauffer-ses-frites-622x0-1.gif")
         .setFooter("Cordialement, La Friterie")
@@ -444,7 +443,6 @@ bot.on('message', msg => {
     }else{
     let memberd = msg.mentions.members.first();
      memberd.ban("GG")
-     const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
       .setTitle("BAN effectué avec succés !")
       .setColor('#FF4500')
@@ -452,7 +450,7 @@ bot.on('message', msg => {
       .setImage("http://www.gif-maniac.com/gifs/9/8887.gif")
       .setFooter("Cordialement, La Friterie")
       .setAuthor("La Friteuse")
-      welcomechannel.sendEmbed(embedsys)
+      msg.channel.sendEmbed(embedsys)
       }}}
 });
 
@@ -466,7 +464,6 @@ bot.on('message', msg => {
     }else{
     let memberd = msg.mentions.members.first();
      memberd.kick("GG")
-     const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
       .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
@@ -474,6 +471,6 @@ bot.on('message', msg => {
       .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
       .setAuthor("La Friteuse")
       .setFooter("Cordialement, La Friterie")
-      welcomechannel.sendEmbed(embedsys)
+      msg.channel.sendEmbed(embedsys)
       }}}
 });
