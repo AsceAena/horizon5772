@@ -413,11 +413,8 @@ if(message.content === "~ping"){
              msg.channel.sendEmbed(embed1).catch(err => console.log(err));
             }else{
                msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
-            }
-          
-        }}}
-     
-  });
+            }}}}
+     });
 
   bot.on('message', msg => {
     if (msg.content === "~mute"){
