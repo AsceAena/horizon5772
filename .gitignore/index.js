@@ -404,8 +404,9 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          var namere = msg.content.split('"')[1];
-          if(!namere.exists()){
+          const args = message.content.slice(length).trim().split(/ +/g);
+          const command = args.shift().toLowerCase();
+          if(!command.exists()){
             message.reply("Rekt")
           }else{
           new TempChannel(msg);
