@@ -416,14 +416,30 @@ if(message.content === "~ping"){
       if(!msg.member.hasPermission("KICK_MEMBERS")){
         msg.reply("Vous n'avez pas la permission de mute !")
       }else{
-        var argsus = message.content.slice(6)
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
       memberd.addRole(mute_role)
-      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000 * argsus)
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
         var embedsys = new Discord.RichEmbed()
         .setColor('#FF4500')
         .setDescription(`Mute de 10 minutes effectué avec succés !`)
         msg.channel.sendEmbed(embedsys)
         }}}
+});
+
+bot.on('message', msg => {
+  if (msg.content === "~ban"){
+    msg.reply("Vous devez mentionner un utilisateur à mute avec ``~ban <nom>``");
+  }else{
+  if(msg.content.startsWith("~ban")){
+    if(!msg.member.hasPermission("BAN_MEMBERS")){
+      msg.reply("Vous n'avez pas la permission de ban !")
+    }else{
+    let memberd = msg.mentions.members.first();
+    await memberd.ban(reason)
+      var embedsys = new Discord.RichEmbed()
+      .setColor('#FF4500')
+      .setDescription(`Ban effectué avec succés !`)
+      msg.channel.sendEmbed(embedsys)
+      }}}
 });
