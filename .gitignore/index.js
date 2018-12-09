@@ -404,7 +404,7 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          var some = '~tempochannel \"'
+          var some = '~tempochannel "'
           if(!msg.content.includes(some)){
             message.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
           }else{
