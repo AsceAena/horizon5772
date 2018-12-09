@@ -404,7 +404,7 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          if(msg.content.slice.length !== 6){
+          if(msg.content.slice.length === 2){
             msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
             }else{
               new TempChannel(msg);
