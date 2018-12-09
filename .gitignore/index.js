@@ -409,41 +409,21 @@ if(message.content === "~ping"){
   });
 
   bot.on('message', msg => {
-    if (msg.content === "~mute"){
+    if (msg.content.startsWith("~mute")){
       msg.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``");
     }else{
     if(msg.content.startsWith("~mute")){
       if(!msg.member.hasPermission("KICK_MEMBERS")){
         msg.reply("Vous n'avez pas la permission de mute !")
       }else{
+        var argsus = message.content.slice(6)
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
       memberd.addRole(mute_role)
-      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 10000)
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000 * argsus)
         var embedsys = new Discord.RichEmbed()
         .setColor('#FF4500')
         .setDescription(`Mute de 10 minutes effectué avec succés !`)
         msg.channel.sendEmbed(embedsys)
         }}}
 });
-
-bot.on('message', message => {
-  if (message.content.startsWith("~ban")){
-    if(!message.member.hasPermission("BAN_MEMBERS")){
-      return message.reply("Je n'ai pas la permission de faire cela.");
-    }
-    let member = message.mentions.members.first();
-    if(!member){
-      return message.reply("Merci de mentionner un utilisateur valide");
-    }
-    if(!member.bannable){
-      return message.reply("Je ne bannis aucun de mes supérieurs.");
-    }
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "Aucune raison spécifiée";
-    
-    await member.ban(reason)
-      .catch(error => message.reply(`Désolé ${message.author} Je ne peux pas ban parce que : ${error}`));
-    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
-  }
-  });
