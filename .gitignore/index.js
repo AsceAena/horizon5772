@@ -448,7 +448,7 @@ bot.on('message', msg => {
   });
 
 bot.on('message', msg => {
-  if(msg.content.startsWith("~kick"){
+  if(msg.content.startsWith("~kick")){
     if(!msg.member.roles.some(r=>["Fondateurs", "Modérateurs"].includes(r.name)) )
       return msg.reply("Je n'ai pas la permission de faire cela");
 
