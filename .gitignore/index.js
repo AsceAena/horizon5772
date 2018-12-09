@@ -456,8 +456,9 @@ bot.on('message', msg => {
     let memberd = msg.mentions.members.first();
      memberd.kick("GG")
       var embedsys = new Discord.RichEmbed()
+      .setTitle('KICK')
       .setColor('#FF4500')
-      .setDescription(`Kick effectué avec succés !`)
+      .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
       .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
       msg.channel.sendEmbed(embedsys)
       }}}
