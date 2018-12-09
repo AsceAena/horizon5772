@@ -426,6 +426,9 @@ if(message.content === "~ping"){
       }else{
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
+      if(!msg.mentions.members.exists(memberd)){
+        message.reply("Utilisateur introuvable")
+      }else{
       memberd.addRole(mute_role)
       setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
         var embedsys = new Discord.RichEmbed()
@@ -436,7 +439,7 @@ if(message.content === "~ping"){
         .setFooter("Cordialement, La Friterie")
         .setAuthor("La Friteuse")
         msg.channel.sendEmbed(embedsys)
-        }}}
+        }}}}
 });
 
 bot.on('message', msg => {
@@ -447,7 +450,10 @@ bot.on('message', msg => {
     if(!msg.member.hasPermission("BAN_MEMBERS")){
       msg.reply("Vous n'avez pas la permission de ban !")
     }else{
-    let memberd = msg.mentions.members.first();
+       let memberd = msg.mentions.members.first();
+      if(!msg.mentions.members.exists(memberd)){
+        message.reply("Utilisateur introuvable")
+      }else{
      memberd.ban("GG")
       var embedsys = new Discord.RichEmbed()
       .setTitle("BAN effectué avec succés !")
@@ -457,7 +463,7 @@ bot.on('message', msg => {
       .setFooter("Cordialement, La Friterie")
       .setAuthor("La Friteuse")
       msg.channel.sendEmbed(embedsys)
-      }}}
+      }}}}
 });
 
 bot.on('message', msg => {
@@ -468,8 +474,11 @@ bot.on('message', msg => {
     if(!msg.member.hasPermission("KICK_MEMBERS")){
       msg.reply("Vous n'avez pas la permission de kick !")
     }else{
-    let memberd = msg.mentions.members.first();
-     memberd.kick("GG")
+      let memberd = msg.mentions.members.first();
+      if(!msg.mentions.members.exists(memberd)){
+        message.reply("Utilisateur introuvable")
+      }else{
+      memberd.kick("GG")
       var embedsys = new Discord.RichEmbed()
       .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
@@ -478,5 +487,5 @@ bot.on('message', msg => {
       .setAuthor("La Friteuse")
       .setFooter("Cordialement, La Friterie")
       msg.channel.sendEmbed(embedsys)
-      }}}
+      }}}}
 });
