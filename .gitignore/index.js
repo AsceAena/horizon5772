@@ -405,7 +405,7 @@ if(message.content === "~ping"){
          msg.reply("Vous n'avez pas la permission.")
         }else{
           if(msg.content.slice.length !== 3){
-            message.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
+            msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
             }else{
               new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
