@@ -406,7 +406,7 @@ if(message.content === "~ping"){
         }else{
           var namer = this.msg.content.split('"')[1];
           var max = Number(this.msg.content.split('"')[2].split(" ")[1]);
-          if(msg.content.slice("~tempochannel ", namer, max)){
+          if(msg.content === "~tempochannel ", namer, max){
             new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
