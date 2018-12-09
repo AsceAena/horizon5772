@@ -405,7 +405,7 @@ if(message.content === "~ping"){
          msg.reply("Vous n'avez pas la permission.")
         }else{
           var ttt = msg.content.split('"')[1]
-          if(!ttt.exists(msg.content.split('"')[1])){
+          if(!ttt.exists()){
             message.reply("Rekt")
           }else{
           new TempChannel(msg);
