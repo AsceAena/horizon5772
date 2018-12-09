@@ -428,7 +428,7 @@ if(message.content === "~ping"){
 });
 
 bot.on('message', msg => {
-  if (msg.content === "~ban"){
+  if (msg.content.startsWith("~ban")){
     if(!msg.member.roles.some(r=>["Fondateurs"].includes(r.name)) )
       return msg.reply("Je n'ai pas la permission de faire cela.");
     
@@ -448,9 +448,9 @@ bot.on('message', msg => {
   });
 
 bot.on('message', msg => {
-  if(msg.content === "~kick"){
+  if(msg.content.startsWith("~kick"){
     if(!msg.member.roles.some(r=>["Fondateurs", "Modérateurs"].includes(r.name)) )
-      return msg.reply("Je n'ai pas la permissio de faire cela");
+      return msg.reply("Je n'ai pas la permission de faire cela");
 
     let member = msg.mentions.members.first() || msg.guild.members.get(args[0]);
     if(!member)
