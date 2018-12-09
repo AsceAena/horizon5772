@@ -397,7 +397,7 @@ if(message.content === "~ping"){
   }
 
   bot.on('message', msg => {
-    if (msg.content === '~tempochannel', '~tempochannel "'){
+    if (msg.content === '~tempochannel'){
         msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``");
     }else{
       if(msg.content.startsWith('~tempochannel "')) {
