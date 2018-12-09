@@ -429,7 +429,7 @@ if(message.content === "~ping"){
 
 bot.on('message', msg => {
   if (msg.content === "~ban"){
-    msg.reply("Vous devez mentionner un utilisateur à mute avec ``~ban <nom>``");
+    msg.reply("Vous devez mentionner un utilisateur à ban avec ``~ban <nom>``");
   }else{
   if(msg.content.startsWith("~ban")){
     if(!msg.member.hasPermission("BAN_MEMBERS")){
@@ -440,6 +440,23 @@ bot.on('message', msg => {
       var embedsys = new Discord.RichEmbed()
       .setColor('#FF4500')
       .setDescription(`Ban effectué avec succés !`)
+      msg.channel.sendEmbed(embedsys)
+      }}}
+});
+
+bot.on('message', msg => {
+  if (msg.content === "~kick"){
+    msg.reply("Vous devez mentionner un utilisateur à kick avec ``~kick <nom>``");
+  }else{
+  if(msg.content.startsWith("~kick")){
+    if(!msg.member.hasPermission("KICK_MEMBERS")){
+      msg.reply("Vous n'avez pas la permission de kick !")
+    }else{
+    let memberd = msg.mentions.members.first();
+     memberd.kick("GG")
+      var embedsys = new Discord.RichEmbed()
+      .setColor('#FF4500')
+      .setDescription(`Kick effectué avec succés !`)
       msg.channel.sendEmbed(embedsys)
       }}}
 });
