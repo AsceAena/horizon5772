@@ -406,7 +406,7 @@ if(message.content === "~ping"){
         }else{
           const args = message.content.slice(length).trim().split(/ +/g);
           const command = args.shift().toLowerCase();
-          if(!command.exists()){
+          if(!command.find('"')){
             message.reply("Rekt")
           }else{
           new TempChannel(msg);
