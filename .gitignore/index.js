@@ -419,10 +419,17 @@ if(message.content === "~ping"){
         let mute_role = msg.guild.roles.find("name", "Mute");
       let memberd = msg.mentions.members.first();
       memberd.addRole(mute_role)
-      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 1000)
+      setTimeout(() => {memberd.removeRole(mute_role);}, 60 * 20000)
         var embedsys = new Discord.RichEmbed()
+        let bicon = message.author.displayAvatarURL
+        .setThumbnail(bicon)
+        .setTitle("MUTE effectué avec succés !")
         .setColor('#FF4500')
-        .setDescription(`Mute de 10 minutes effectué avec succés !`)
+        .setTitle(`Mute de 10 minutes effectué avec succés !`)
+        .setDescription(`${memberd} s'est fait mute par ${msg.author} le temps de 20 minutes..`)
+        .setImage("https://static1.terrafemina.com/articles/4/34/35/44/@/506712-faire-rechauffer-ses-frites-622x0-1.gif")
+        .setFooter("Cordialement, La Friterie")
+        .setAuthor("La Friteuse")
         msg.channel.sendEmbed(embedsys)
         }}}
 });
@@ -437,11 +444,17 @@ bot.on('message', msg => {
     }else{
     let memberd = msg.mentions.members.first();
      memberd.ban("GG")
+     const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
+      let bicon = message.author.displayAvatarURL
+      .setThumbnail(bicon)
+      .setTitle("BAN effectué avec succés !")
       .setColor('#FF4500')
-      .setDescription(`Ban effectué avec succés !`)
+      .setDescription(`${memberd} s'est fait ban par ${msg.author} ! Ce n'est qu'un au revoir !!`)
       .setImage("http://www.gif-maniac.com/gifs/9/8887.gif")
-      msg.channel.sendEmbed(embedsys)
+      .setFooter("Cordialement, La Friterie")
+      .setAuthor("La Friteuse")
+      welcomechannel.sendEmbed(embedsys)
       }}}
 });
 
@@ -455,11 +468,16 @@ bot.on('message', msg => {
     }else{
     let memberd = msg.mentions.members.first();
      memberd.kick("GG")
+     const welcomechannel = member.guild.channels.find('name', 'friterie-1-🍟')
       var embedsys = new Discord.RichEmbed()
-      .setTitle('KICK')
+      let bicon = message.author.displayAvatarURL
+      .setThumbnail(bicon)
+      .setTitle('KICK effectué avec succés !')
       .setColor('#FF4500')
       .setDescription(`${memberd} s'est fait Kick par ${msg.author} ! A la prochaine à la Friterie !!`)
       .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
-      msg.channel.sendEmbed(embedsys)
+      .setAuthor("La Friteuse")
+      .setFooter("Cordialement, La Friterie")
+      welcomechannel.sendEmbed(embedsys)
       }}}
 });
