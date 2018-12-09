@@ -404,12 +404,15 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
+          if(!name.exists){
+            message.reply("Rekt")
+          }else{
           new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
              msg.channel.sendEmbed(embed1).catch(err => console.log(err));
-        }}}
+        }}}}
      
   });
 
