@@ -404,16 +404,15 @@ if(message.content === "~ping"){
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
-          var namerr = msg.content.split('"')[1];
-          var maxx = Number(msg.content.split('"')[2].split(" ")[1]);
-          if(msg.content[0] !== "~tempochannel " + '"test"' + "5"){
-            msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
-            }else{
-              new TempChannel(msg);
+          var num = msg.content.slice.length
+          if(num === 2){
+            new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
-             msg.channel.sendEmbed(embed1).catch(err => console.log(err)); 
+             msg.channel.sendEmbed(embed1).catch(err => console.log(err));
+            }else{
+               msg.reply("t")
             }
           
         }}}
