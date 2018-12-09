@@ -397,21 +397,22 @@ if(message.content === "~ping"){
   }
 
   bot.on('message', msg => {
-    if (msg.content === "~tempochannel"){
+    if (msg.content === '~tempochannel', '~tempochannel "'){
         msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``");
     }else{
-      if(msg.content.startsWith('~tempochannel')) {
+      if(msg.content.startsWith('~tempochannel "')) {
         if(!msg.member.hasPermission("MANAGE_CHANNELS")){
          msg.reply("Vous n'avez pas la permission.")
         }else{
           if(!msg.content.startsWith('~tempochannel "')){
-            message.reply("Rekt")
-          }else{
           new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
              msg.channel.sendEmbed(embed1).catch(err => console.log(err));
+          }else{
+            msg.reply("Rekt")
+          
         }}}}
      
   });
