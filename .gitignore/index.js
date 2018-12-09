@@ -409,7 +409,7 @@ if(message.content === "~ping"){
   });
 
   bot.on('message', msg => {
-    if (msg.content.startsWith("~mute")){
+    if (msg.content === "~mute"){
       msg.reply("Vous devez mentionner un utilisateur à mute avec ``~mute <nom>``");
     }else{
     if(msg.content.startsWith("~mute")){
