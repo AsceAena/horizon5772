@@ -412,7 +412,7 @@ if(message.content === "~ping"){
           .setColor("#8800fc")
              msg.channel.sendEmbed(embed1).catch(err => console.log(err));
             }else{
-               msg.reply("t")
+               msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
             }
           
         }}}
