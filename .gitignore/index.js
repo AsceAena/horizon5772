@@ -35,7 +35,7 @@ bot.on('message', message => {
             message.channel.sendMessage("Bot en cours d'éxecution !");
         }
 
-if (message.content === "~test"){ 
+if (message.content === "~test"){
             message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
               }
 
@@ -425,44 +425,4 @@ if(message.content === "~ping"){
         .setDescription(`Mute de 10 minutes effectué avec succés !`)
         msg.channel.sendEmbed(embedsys)
         }}}
-});
-
-bot.on('message', msg => {
-  if (msg.content.startsWith("~ban")){
-    if(!msg.member.roles.some(r=>["Fondateurs"].includes(r.name)) )
-      return msg.reply("Je n'ai pas la permission de faire cela.");
-    
-    let member = msg.mentions.members.first();
-    if(!member)
-      return msg.reply("Merci de mentionner un utilisateur valide");
-    if(!member.bannable) 
-      return msg.reply("Je ne bannis aucun de mes supérieurs.");
-
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "Aucune raison spécifiée";
-    
-    await member.ban(reason)
-      .catch(error => msg.reply(`Désolé ${msg.author} Je ne peux pas ban parce que : ${error}`));
-    msg.reply(`${member.user.tag} has been banned by ${msg.author.tag} because: ${reason}`);
-  }
-  });
-
-bot.on('message', msg => {
-  if(msg.content.startsWith("~kick")){
-    if(!msg.member.roles.some(r=>["Fondateurs", "Modérateurs"].includes(r.name)) )
-      return msg.reply("Je n'ai pas la permission de faire cela");
-
-    let member = msg.mentions.members.first() || msg.guild.members.get(args[0]);
-    if(!member)
-      return msg.reply("Merci de mentionner un utilisateur valide.");
-    if(!member.kickable) 
-      return msg.reply("Je ne peux pas kick un de mes supérieurs.");
-
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "Aucune raison spécifiée";
- 
-    await member.kick(reason)
-      .catch(error => msg.reply(`Désolé ${msg.author} Je ne peux pas kick parce que : ${error}`));
-    msg.reply(`${member.user.tag} a été kick par ${msg.author.tag} pour raison de : ${reason}`);
-  }
 });
