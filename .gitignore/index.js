@@ -440,6 +440,7 @@ bot.on('message', msg => {
       var embedsys = new Discord.RichEmbed()
       .setColor('#FF4500')
       .setDescription(`Ban effectué avec succés !`)
+      .setImage("http://www.gif-maniac.com/gifs/9/8887.gif")
       msg.channel.sendEmbed(embedsys)
       }}}
 });
@@ -457,6 +458,7 @@ bot.on('message', msg => {
       var embedsys = new Discord.RichEmbed()
       .setColor('#FF4500')
       .setDescription(`Kick effectué avec succés !`)
+      .setImage("https://data.photofunky.net/output/image/0/c/1/0/0c10f3/photofunky.gif")
       msg.channel.sendEmbed(embedsys)
       }}}
 });
