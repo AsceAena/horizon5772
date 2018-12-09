@@ -155,16 +155,16 @@ if(message.content === "~deletechannel"){
       var argss = message.content.slice(15)
       var argss2 = argss.toLocaleLowerCase()
       var channelrss = message.guild.channels.find('name', `${argss2}`)
-      if(!message.guild.channels.find('name', `${argss2}`)){
+      if(!message.guild.channels.exists('name', `${argss2}`)){
         message.reply("Channel introuvable") 
-      }else{}
+      }else{
       const channelip = message.guild.channels.find('name', `invocation`)
        channelrss.delete(`${argss2}`, 'text',).then(message => {
          var embedss = new Discord.RichEmbed()
          .setColor('#FF4500')
          .setDescription(`Le channel #${argss} a bien été supprimé !`)
          channelip.sendEmbed(embedss)
-      })
+      })}
     }}};
    
     
