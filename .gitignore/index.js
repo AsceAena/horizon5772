@@ -35,7 +35,7 @@ bot.on('message', message => {
             message.channel.sendMessage("Bot en cours d'éxecution !");
         }
 
-if (message.content === "~test"){
+if (message.content === "~test"){ 
             message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
               }
 
