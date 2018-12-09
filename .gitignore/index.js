@@ -436,7 +436,7 @@ bot.on('message', msg => {
       msg.reply("Vous n'avez pas la permission de ban !")
     }else{
     let memberd = msg.mentions.members.first();
-    await memberd.ban(reason)
+     memberd.ban(reason)
       var embedsys = new Discord.RichEmbed()
       .setColor('#FF4500')
       .setDescription(`Ban effectué avec succés !`)
