@@ -406,16 +406,15 @@ if(message.content === "~ping"){
         }else{
           var namerr = msg.content.split('"')[1];
           var maxx = msg.content.split('"')[2].split(" ")[1];
-          if(msg.content === "~tempochannel " + namerr + maxx){
-            new TempChannel(msg);
+          if(msg.content.slice !== "~tempochannel " + namerr + maxx){
+            msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
+            }else{
+              new TempChannel(msg);
           var embed1 = new Discord.RichEmbed()
           .setDescription("***Channel créé avec succés !***")
           .setColor("#8800fc")
              msg.channel.sendEmbed(embed1).catch(err => console.log(err)); 
-            }else{
-              if(msg.content.slice.length !== 2){
-              msg.reply("Merci d'utiliser correctement la commande avec ``~tempochannel <\"nom\"> <nombre>``.")
-            }}
+            }
           
         }}}
      
