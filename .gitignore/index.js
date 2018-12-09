@@ -155,8 +155,8 @@ if(message.content === "~deletechannel"){
       var argss = message.content.slice(15)
       var argss2 = argss.toLocaleLowerCase()
       var channelrss = message.guild.channels.find('name', `${argss2}`)
-      if(!channelrss){
-        message.reply("Channel introuvable")
+      if(!message.guild.channels.find('name', `${argss2}`)){
+        message.reply("Channel introuvable") 
       }else{}
       const channelip = message.guild.channels.find('name', `invocation`)
        channelrss.delete(`${argss2}`, 'text',).then(message => {
