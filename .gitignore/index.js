@@ -485,7 +485,7 @@ bot.on('message', msg => {
 bot.on('message', msg => {
   
     const date = new Date();
-    let hour = date.getHours();
+    let hour = date.getHours() +1;
     hour = (hour < 10 ? '0' : '') + hour;
     let min = date.getMinutes();
     min = (min < 10 ? '0' : '') + min;
@@ -498,12 +498,13 @@ bot.on('message', msg => {
     day = (day < 10 ? '0' : '') + day;
       
    if(msg.content === "~date"){
-
-    msg.channel.sendMessage(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`).then((msg)=>{
-      setInterval(() => {
-        msg.edit(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`)}, 1000)
-
-    
-    })}
+    var embedsys = new Discord.RichEmbed()
+    .setTitle('HORLOGE')
+    .setColor('RANDOM')
+    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`)
+    .setAuthor("La Friteuse")
+    .setFooter("La Friterie")
+    msg.channel.sendEmbed(embedsys)
+};
 
 });
