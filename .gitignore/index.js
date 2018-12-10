@@ -37,9 +37,9 @@ bot.on('message', message => {
 
 if (message.content === "~test"){
   message.channel.sendMessage("```Execution => test.exe```")
-  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 14)
-  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 14)
-  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 14)
+  setTimeout(() => {message.channel.sendMessage("``.``");}, 60 * 14)
+  setTimeout(() => {message.channel.sendMessage("``.``");}, 60 * 14)
+  setTimeout(() => {message.channel.sendMessage("``.``");}, 60 * 14)
   setTimeout(() => {message.channel.sendMessage("```OK```");}, 60 * 18)
 }
 
