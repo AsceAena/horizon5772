@@ -498,10 +498,13 @@ bot.on('message', msg => {
     day = (day < 10 ? '0' : '') + day;
       
    if(msg.content === "~date"){
-     var pas = 1;
-while (pas = 2) {
-msg.send(`Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}`)
-      setTimeout(() => {msg.channel.bulkDelete(1);}, 1000);
-}};
+    var embedsys = new Discord.RichEmbed()
+    .setTitle('HORLOGE')
+    .setColor('RANDOM')
+    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`)
+    .setAuthor("La Friteuse")
+    .setFooter("La Friterie")
+    msg.channel.sendEmbed(embedsys)
+};
 
 });
