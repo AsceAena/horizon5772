@@ -497,7 +497,7 @@ bot.on('message', msg => {
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
 
-    var saison = String()
+    var saison = "cc";
       
 if(month >= 3, month <= 6){
   if(day >= 21, day <= 22){
