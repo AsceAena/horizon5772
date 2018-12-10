@@ -207,7 +207,7 @@ if(message.content === "~ping"){
       .setDescription(`${message.author}, vous venez de vous rajouter le rôle **Stream Notif** !`)
         message.channel.send({embesd})
       }else{
-        message.reply("Vous avez deja le rôle **Stream notif**")
+        message.reply(`${message.member} Vous avez deja le rôle **Stream notif**`)
       }};
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
