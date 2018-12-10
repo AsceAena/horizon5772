@@ -502,5 +502,6 @@ bot.on('message', msg => {
 while (pas = 2) {
 msg.send(`Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}`)
       setTimeout(() => {message.channel.bulkDelete(1);}, 1000);
-}}
+}};
+
 });
