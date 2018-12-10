@@ -61,11 +61,11 @@ if (message.content === "~test"){
      .addField("**~listfun :**", "Afficher la liste des commandes.. inutile")
      .addField("**~modocmd**", "Affiche les commandes pour les modérateurs !")
      .addField(" \n ***Bonne visite à la Friterie ! Et bon appétit !***", "**:D**")
-     .setColor("#FF4500")
+     .setColor("#FF8C00")
      .setAuthor("La Friteuse")
      .setFooter("La Friterie")
         message.channel.sendEmbed(embed)
-      }
+      };
 
       if(message.content === "~modocmd") { 
         var embed = new Discord.RichEmbed()
@@ -77,11 +77,9 @@ if (message.content === "~test"){
       .setFooter("La Friterie")
       .setColor("#FF4500")
            message.channel.sendEmbed(embed)
-       }
+       };
 
-
-
-  if(message.content === "~infodiscord") { 
+ if(message.content === "~infodiscord") { 
       let bicon = message.author.displayAvatarURL;
       var embed = new Discord.RichEmbed()
     .setThumbnail(bicon)
@@ -94,18 +92,18 @@ if (message.content === "~test"){
     .setFooter("La Friterie")
     .setColor("#FF4500")
          message.channel.sendEmbed(embed)
-     }
+     };
 
   if(message.content === "~infobot"){
       let bicon1 = bot.user.displayAvatarURL;
       let botembed = new Discord.RichEmbed()
     .setTitle("Information du bot")
-    .setColor("#15f153")
+    .setColor("#FF8C00")
     .setThumbnail(bicon1)
     .addField("Nom du bot", bot.user.username)
     .addField("Créer le", bot.user.createdAt);
        message.channel.send(botembed);
-    }
+    };
 
    if(message.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
@@ -115,7 +113,7 @@ if (message.content === "~test"){
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
     .setColor("#8800fc")
        message.channel.sendEmbed(embed1)
-   }
+   };
 
    if(message.content === "~createchannel"){
     var embedz = new Discord.RichEmbed()
@@ -127,7 +125,7 @@ if (message.content === "~test"){
     .setFooter(`Toutes ces commandes sont à utiliser dans le channel invocation !`)
     .setColor("#FF4500")
        message.channel.sendEmbed(embedz)
-   }
+   };
 
    if(message.content === "~createtchannel"){
     message.reply("Merci de mentionner un nom de channel avec la commande  ``~createtchannel <Nom>`` !")
@@ -198,7 +196,7 @@ if(message.content === "~clear"){
 
 if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
-   }
+   };
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
@@ -206,7 +204,7 @@ if(message.content === "~ping"){
       .setColor("#FF7F50")  
       .setDescription(message.content.slice("~embed ".length))
         message.channel.send({embed});
-      }
+      };
         
    if(message.content === "~avatar"){
         message.reply("Merci de mentionner un utilisateur valide avec la commande ``~avatar [Utilisateur]``")
@@ -223,15 +221,16 @@ if(message.content === "~ping"){
           message.delete()
           const str = message.content.substring("~say".length)
           message.channel.sendMessage(str)
-        }
+        };
 
-    if(message.content === "~cmdbump"){
+  if(message.content === "~cmdbump"){
         var embedcmd = new Discord.RichEmbed()
-      .setColor('RANDOM')
+      .setColor('#FF8C00')
       .addField("``?bump``", "*Bump_Bot*")
       .addField("``!disboard bump``", "*Disboard*")
+      .setFooter("La Friterie")
         message.channel.sendEmbed(embedcmd)
-      }
+      };
 
    if (message.content.split(" ")[0] == "~sondage"){//sondage
           message.delete()
@@ -241,7 +240,7 @@ if(message.content === "~ping"){
           message.channel.send({embed}).then(embedMessage => {
           embedMessage.react("👍");
           embedMessage.react("👎");
-      })}
+      })};
          
       var randnum = 0
 
