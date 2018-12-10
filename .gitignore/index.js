@@ -497,8 +497,11 @@ bot.on('message', msg => {
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
       
-   if(message.content === "~date"){
+   if(msg.content === "~date"){
+     var pas = 1;
+while (pas = 2) {
 msg.send(`Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}`)
-   };
+      setTimeout(() => {msg.channel.bulkDelete(1);}, 1000);
+}};
 
 });
