@@ -36,8 +36,12 @@ bot.on('message', message => {
         }
 
 if (message.content === "~test"){
-            message.channel.sendMessage("```css \n Test 1...```  ```Test1 OK```  ```Bot OK```")
-              }
+  message.channel.sendMessage("```Execution => test.exe```")
+  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 8)
+  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 8)
+  setTimeout(() => {message.channel.sendMessage(".");}, 60 * 8)
+  setTimeout(() => {message.channel.sendMessage("```OK```");}, 60 * 20)
+}
 
   if(message.content === "~help") { 
     var embed = new Discord.RichEmbed()
