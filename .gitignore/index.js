@@ -240,6 +240,19 @@ if(message.content === "~ping"){
           embedMessage.react("👍");
           embedMessage.react("👎");
       })}
+
+      let dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+if (!dUser) return message.channel.send("Je ne trouve pas cet utilisateur !")
+if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission de faire cette commande !")
+let dMessage = args.join(" ").slice(22);
+if(dMessage.length < 1) return message.reply('Merci d\'envoyer un message!')
+
+dUser.send(`${dUser} Un utilisateur de La Friterie t'a envoyé un message ! ${dMessage}`)
+
+message.author.send(`${message.author} Vous avez envoyé un message à ${dUser}`)
+
+
+
          
       var randnum = 0
 
@@ -316,6 +329,7 @@ if(message.content === "~ping"){
 
       if (message.content === "Hugs"){
         random()
+        
         if (randhug ==1){
           var embed = new Discord.RichEmbed()
           .setDescription("***Tiens un câlin ! :D***")
