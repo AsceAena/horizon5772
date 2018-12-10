@@ -198,6 +198,19 @@ if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
    }
 
+   if(message.content === "~addrole stream"){
+   let stream = message.guild.roles.find("name", "Stream notif");
+      let memberstream = message.author
+      if(!message.memberstream.roles.find("name", "stream")){
+      memberstream.addRole(stream)
+      var embesd = new Discord.RichEmbed()
+      .setColor("#FF7F50")  
+      .setDescription(`${message.author}, vous venez de vous rajouter le rôle **Stream Notif** !`)
+        message.channel.send({embesd})
+      }else{
+        message.reply("Vous avez deja le rôle **Stream notif**")
+      }};
+
     if (message.content.split(" ")[0] == "~embed"){//EMBED
         message.delete()
         var embed = new Discord.RichEmbed()
