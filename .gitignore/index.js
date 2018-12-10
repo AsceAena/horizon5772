@@ -201,14 +201,14 @@ if(message.content === "~ping"){
    if(message.content === "~addrole stream"){
     let stream_role = message.guild.roles.find("name", "Stream notif");
    if(message.member.roles.some(r=> stream)){
-      message.member.addRole(stream_role)
+    message.member.removeRole(stream_role)
+    message.reply(`${message.member} Vous avez deja le rôle **Stream notif**`)
+      }else{
+       message.member.addRole(stream_role)
       var embesd = new Discord.RichEmbed()
       .setColor("#FF7F50")  
-      .setDescription(`${message.author}, vous venez de vous rajouter le rôle **Stream Notif** !`)
-        message.channel.send({embesd})
-      }else{
-        message.member.removeRole(stream_role)
-        message.reply(`${message.member} Vous avez deja le rôle **Stream notif**`)
+      .setDescription(`${message.member}, vous venez de vous rajouter le rôle **Stream Notif** !`)
+        message.channel.send({embesd}) 
       }};
 
     if (message.content.split(" ")[0] == "~embed"){//EMBED
