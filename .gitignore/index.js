@@ -499,7 +499,7 @@ bot.on('message', msg => {
       
    if(msg.content === "~date"){
 
-    msg.send(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`).then((msg)=>{
+    msg.channel.sendMessage(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`).then((msg)=>{
       setInterval(() => {
         msg.edit(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`)}, 1000)
 
