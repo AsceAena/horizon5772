@@ -497,29 +497,29 @@ bot.on('message', msg => {
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
 
-    var saison = "cc";
+    var saison;
       
 if(month >= 3, month <= 6){
   if(day >= 21, day <= 22){
-    saison = "Printemps"
+    saison = "Printemps";
  }
 }
 
 if(month >= 3, month <= 6){
   if(day >= 21, day <= 22){
-    saison = "Eté"
+    saison = "Eté";
  }
 }
 
 if(month >= 6, month <= 9){
   if(day >= 22, day <= 23){
-    saison = "Automne"
+    saison = "Automne";
  }
 }
 
 if(month >= 9, month <= 3){
   if(day >= 23, day <= 21){
-    saison = "Hiver"
+    saison = "Hiver";
  }
 }
 
