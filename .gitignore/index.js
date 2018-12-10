@@ -101,13 +101,16 @@ if (message.content === "~test"){
     .setColor("#FF8C00")
     .setThumbnail(bicon1)
     .addField("Nom du bot", bot.user.username)
-    .addField("Créer le", bot.user.createdAt);
+    .addField("Développeur", "<@387291278670430208>")
+    .addField("Nombre de commande :", "**25**")
+    .addField("Créer le", bot.user.createdAt)
+    .addField("Pour toute aide : ", "``~help``");
        message.channel.send(botembed);
     };
 
    if(message.content === "~listfun") { 
       var embed1 = new Discord.RichEmbed()
-    .setDescription("***Liste des commandes fun :***")
+    .setTitle("Liste des commandes fun :")
     .addField("**~frites : **", "Fait apparaitre une image de frites !!.")
     .addField("**Hugs :**", "Faites des câlins !")
     .addField("**Et d'autres à venir..**", "Proposez vos idées..")
@@ -120,7 +123,7 @@ if (message.content === "~test"){
     .setTitle("Création de channel ")
     .setDescription("***Ces commandes sont uniquemet utilisables par les utilisateurs ayant la permission de \"Manage Channels\"***")
     .addField("**~createtchannel : **", "Créer votre channel textuel avec : ``~createtchannel <nom>``")
-    .addField("**~tempochannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\n> <nombre>``")
+    .addField("**~tempochannel : **", "Créer votre channel vocal privé avec : ``~tempochannel <\"nom\"> <nombre>``")
     .addField("**~deletechannel : **", "Supprimer votre channel après l'avoir utilisé avec : ``~deletechannel <nom>``")
     .setFooter(`Toutes ces commandes sont à utiliser dans le channel invocation !`)
     .setColor("#FF4500")
@@ -226,8 +229,8 @@ if(message.content === "~ping"){
   if(message.content === "~cmdbump"){
         var embedcmd = new Discord.RichEmbed()
       .setColor('#FF8C00')
-      .addField("``?bump``", "*Bump_Bot*")
-      .addField("``!disboard bump``", "*Disboard*")
+      .addField("**Bump Bot**", "``?bump``")
+      .addField("**Disboard**", "``!disboard bump``")
       .setFooter("La Friterie")
         message.channel.sendEmbed(embedcmd)
       };
