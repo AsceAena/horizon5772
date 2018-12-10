@@ -497,32 +497,7 @@ bot.on('message', msg => {
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
 
-    var saison = ("")
-      
-if(month >= 3, month <= 6){
-  if(day >= 21, day <= 22){
-    saison = "Printemps";
- }
-}
-
-if(month >= 3, month <= 6){
-  if(day >= 21, day <= 22){
-    saison = "Eté";
- }
-}
-
-if(month >= 6, month <= 9){
-  if(day >= 22, day <= 23){
-    saison = "Automne";
- }
-}
-
-if(month >= 9, month <= 3){
-  if(day >= 23, day <= 21){
-    saison = "Hiver";
- }
-}
-
+   
    if(msg.content === "~date"){
     var embedsys = new Discord.RichEmbed()
     .setTitle('HORLOGE')
