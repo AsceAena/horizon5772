@@ -200,7 +200,8 @@ if(message.content === "~ping"){
 
    if(message.content === "~addrole stream"){
    let stream = message.guild.roles.find("name", "Stream notif");
-   if(!message.author.roles.some(r=> "Stream notif")){
+   let tess = guild.fetchMember(message.author)
+   if(!tess.roles.some(r=> "Stream notif")){
       memberstream.addRole(stream)
       var embesd = new Discord.RichEmbed()
       .setColor("#FF7F50")  
