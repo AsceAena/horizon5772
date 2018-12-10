@@ -497,11 +497,8 @@ bot.on('message', msg => {
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
 
-    if(msg.content === "~date"){
-      var embed = new Discord.RichEmbed()
-      .setColor("#FF7F50")  
-      .setDescription(`${year}:${month}:${day}:${hour}:${min}:${sec}`)
-        message.channel.send({embed});
-      }
+    if(msg.content === "~date"){  
+      msg.reply(`Il est : ${year}:${month}:${day}:${hour}:${min}:${sec}`)
+       }
 
 });
