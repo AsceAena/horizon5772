@@ -229,8 +229,10 @@ if(message.content === "~ping"){
    if (message.content.split(" ")[0] == "~sondage"){//sondage
           message.delete()
           var embed = new Discord.RichEmbed()
+          var abc = message.content.slice("~sondage ".length)
+          let abcd = message.author
       .setColor("RANDOM")
-      .setDescription(message.content.slice("~sondage ".length))
+      .addField(abcd, abc)
           message.channel.send({embed}).then(embedMessage => {
           embedMessage.react("👍");
           embedMessage.react("👎");
