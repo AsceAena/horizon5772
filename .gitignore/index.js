@@ -527,7 +527,7 @@ if(month >= 9, month <= 3){
     var embedsys = new Discord.RichEmbed()
     .setTitle('HORLOGE')
     .setColor('RANDOM')
-    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}** Nous somme au ${saison}`)
+    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}** Nous somme au : `, saison)
     .setAuthor("La Friteuse")
     .setFooter("La Friterie")
     msg.channel.sendEmbed(embedsys)
