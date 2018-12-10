@@ -186,7 +186,7 @@ if(message.content === "~clear"){
          .setColor('#FF4500')
          .setDescription(`Messages supprimés avec succés. \n Total  des messages supprimés : ` + limitao)
          message.channel.sendEmbed(embedw)
-         setTimeout(() => {message.channel.bulkDelete(embedw);}, 60 * 250)
+         setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 250)
           })
       }}};
         
