@@ -171,8 +171,6 @@ if(message.content === "~deletechannel"){
       })}
     }}};
    
-    
-
 if(message.content === "~clear"){
   message.reply("Merci de préciser le nombre de message à supprimer avec la commande ``~clear <nombre>")
 }else{
@@ -193,7 +191,7 @@ if(message.content === "~clear"){
          setTimeout(() => {message.channel.bulkDelete(1);}, 60 * 250)
           })
       }}};
-        
+
 if(message.content === "~ping"){
      message.channel.sendMessage('Temps de latence avec le serveur: `' + `${message.createdTimestamp - Date.now()}` + 'ms`');
    }
@@ -240,19 +238,6 @@ if(message.content === "~ping"){
           embedMessage.react("👍");
           embedMessage.react("👎");
       })}
-
-      let dUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-if (!dUser) return message.channel.send("Je ne trouve pas cet utilisateur !")
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Vous n'avez pas la permission de faire cette commande !")
-let dMessage = args.join(" ").slice(22);
-if(dMessage.length < 1) return message.reply('Merci d\'envoyer un message!')
-
-dUser.send(`${dUser} Un utilisateur de La Friterie t'a envoyé un message ! ${dMessage}`)
-
-message.author.send(`${message.author} Vous avez envoyé un message à ${dUser}`)
-
-
-
          
       var randnum = 0
 
@@ -362,9 +347,6 @@ message.author.send(`${message.author} Vous avez envoyé un message à ${dUser}`
             console.log(randhug);
         }
       }
-
-     
-
     });
 
     class TempChannel {
@@ -498,4 +480,28 @@ bot.on('message', msg => {
       .setFooter("Cordialement, La Friterie")
       msg.channel.sendEmbed(embedsys)
       }}}
+});
+
+bot.on('message', msg => {
+  
+    const date = new Date();
+    let hour = date.getHours();
+    hour = (hour < 10 ? '0' : '') + hour;
+    let min = date.getMinutes();
+    min = (min < 10 ? '0' : '') + min;
+    let sec = date.getSeconds();
+    sec = (sec < 10 ? '0' : '') + sec;
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    month = (month < 10 ? '0' : '') + month;
+    let day = date.getDate();
+    day = (day < 10 ? '0' : '') + day;
+
+    if(msg.content === "~date"){
+      var embed = new Discord.RichEmbed()
+      .setColor("#FF7F50")  
+      .setDescription(`${year}:${month}:${day}:${hour}:${min}:${sec}`)
+        message.channel.send({embed});
+      }
+
 });
