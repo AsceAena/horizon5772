@@ -199,7 +199,7 @@ if(message.content === "~ping"){
    }
 
    if(message.content === "~addrole stream"){
-    let stream_role = message.guild.roles.find("name", "Stream notif");
+    let stream_role = message.guild.roles.find("name", "Streamnotif");
    if(message.member.roles.some(r=> stream)){
     message.member.removeRole(stream_role)
     message.reply(`${message.member} Vous avez deja le rôle **Stream notif**`)
