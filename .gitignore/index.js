@@ -498,7 +498,7 @@ bot.on('message', msg => {
     day = (day < 10 ? '0' : '') + day;
 
     if(msg.content === "~date"){  
-      msg.reply(`Il est : ${year}:${month}:${day}:${hour}:${min}:${sec}`)
+      msg.reply(`Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}`)
        }
 
 });
