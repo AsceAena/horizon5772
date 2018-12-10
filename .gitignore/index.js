@@ -496,12 +496,38 @@ bot.on('message', msg => {
     month = (month < 10 ? '0' : '') + month;
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
+
+    var saison = String()
       
+if(month >= 3, month <= 6){
+  if(day >= 21, day <= 22){
+    saison = "Printemps"
+ }
+}
+
+if(month >= 3, month <= 6){
+  if(day >= 21, day <= 22){
+    saison = "Eté"
+ }
+}
+
+if(month >= 6, month <= 9){
+  if(day >= 22, day <= 23){
+    saison = "Automne"
+ }
+}
+
+if(month >= 9, month <= 3){
+  if(day >= 23, day <= 21){
+    saison = "Hiver"
+ }
+}
+
    if(msg.content === "~date"){
     var embedsys = new Discord.RichEmbed()
     .setTitle('HORLOGE')
     .setColor('RANDOM')
-    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}**`)
+    .setDescription(`**Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}** Nous somme au ${saison}`)
     .setAuthor("La Friteuse")
     .setFooter("La Friterie")
     msg.channel.sendEmbed(embedsys)
