@@ -496,18 +496,11 @@ bot.on('message', msg => {
     month = (month < 10 ? '0' : '') + month;
     let day = date.getDate();
     day = (day < 10 ? '0' : '') + day;
-
- var pas;
       
    if(message.content === "~date"){
-for (pas = 0; pas < 1;) {
+     var pas = 1;
+while (pas = 2) {
 msg.send(`Il est : ${hour}h ${min}min ${sec}sec, et nous sommes le ${day}/${month}/${year}`)
-      setTimeout(() => {message.channel.bulkDelete(1);}, 1000)
-  console.log("Faire un pas vers l'est");
+      setTimeout(() => {message.channel.bulkDelete(1);}, 1000);
 }}
-
-if(message.content === "~datesupp"){
-  pas++
-}
-
 });
