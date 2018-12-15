@@ -515,23 +515,6 @@ bot.on('message', msg => {
     msg.channel.sendEmbed(embedsys)
 };
 
-    bot.on('message', msg => {
-  if (msg.content === "~rappel"){
-    msg.reply("Vous devez mentionner un rappel");
-  }else{
-  if(msg.content.startsWith("~rappel")){
-    if(!msg.member.hasPermission("KICK_MEMBERS")){
-      msg.reply("Vous n'avez pas la permission de rappel !")
-    }else{
-      const argsws = msg.content.slice(8)
-      var embedsys = new Discord.RichEmbed()
-      .setTitle('rappel effectué avec succés !')
-      .setColor('#FF4500')
-      .setAuthor("La Friteuse")
-      .setFooter("Cordialement, La Friterie")
-      msg.channel.sendEmbed(embedsys).then(msg => {
-        setTimeout(() => {msg.channel.sendMessage(argsws);}, 2000)
-      })}}
-    }});
+
     
 });
